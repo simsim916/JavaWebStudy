@@ -1,0 +1,49 @@
+<mxfile host="Electron" modified="2024-01-08T00:30:51.695Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="ol5PA8xMntDBASinsArc" version="22.1.2" type="device">
+  <diagram name="페이지-1" id="LfmeNNA06KAqEineeAWH">
+    <mxGraphModel dx="941" dy="704" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="V1wl6QGeEfIqqOaPHind-2" value="Transaction" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="40" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V1wl6QGeEfIqqOaPHind-3" value="DML 실행의 처리 단위" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V1wl6QGeEfIqqOaPHind-4" value="commit" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V1wl6QGeEfIqqOaPHind-5" value="버퍼에 저장된 DML 실행을 처리함" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="200" y="100" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V1wl6QGeEfIqqOaPHind-6" value="rollback" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="140" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V1wl6QGeEfIqqOaPHind-7" value="버퍼에 저장된 DML 실행을 취소하고 이전 분기로 돌아감" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="200" y="140" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V1wl6QGeEfIqqOaPHind-8" value="MySQL은 보통 auto commit 의 상태이지만&lt;br&gt;보통의 DB는 false 상" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="200" width="440" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="V1wl6QGeEfIqqOaPHind-9" value="START TRANSACTION;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="280" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V1wl6QGeEfIqqOaPHind-10" value="auto commit, false 버퍼에 실행 저장" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="240" y="280" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V1wl6QGeEfIqqOaPHind-12" value="commit;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V1wl6QGeEfIqqOaPHind-13" value="변경사항을 확정함" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="240" y="320" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V1wl6QGeEfIqqOaPHind-14" value="변경사항을 취소하고 원래 상태로 돌림" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="240" y="360" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V1wl6QGeEfIqqOaPHind-15" value="rollback;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="360" width="160" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,84 @@
+<mxfile host="Electron" modified="2024-01-05T09:09:41.931Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="OnQ6zl5iyqYG6Rl9zmKQ" version="22.1.2" type="device">
+  <diagram name="페이지-1" id="ii2vqDyQC1vBJ9LLbX9M">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--12" value="DDL" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="200" y="40" width="80" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--18" value="SQL 구문종류" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="40" y="40" width="120" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--19" value="Data Definition Language&lt;br&gt;(데이터 정의 언어)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="280" y="40" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--20" value="create,&amp;nbsp;&amp;nbsp;alter, drop, rename, truncate" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="280" y="80" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--21" value="용어정리" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="680" y="40" width="250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--22" value="schema (스키마, 개요) : 데이터를 정의하고 분류" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="680" y="80" width="250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--23" value="실행 시 자동커밋이 발생(DML과 차이점" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="280" y="120" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--24" value="DML" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="200" y="200" width="80" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--25" value="Data Manipulation Language&lt;br&gt;(데이터를 조작하는 기능)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="280" y="200" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="JT3cQ0A9jjJeMYMFLiq--26" target="JT3cQ0A9jjJeMYMFLiq--34" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--26" value="select, insert, delete, update" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="280" y="240" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--27" value="데이터(인스턴스)를 사용하여 CRUD처리" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="280" y="280" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--28" value="CRUE : create, read, update, delete" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="680" y="120" width="250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--29" value="transcation : commit, rollback 작업 처리" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="680" y="160" width="250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--30" value="DCL" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="200" y="360" width="80" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--31" value="Data Control Language&lt;br&gt;(데이터를 조작하는 기능)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="280" y="360" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--32" value="grant(권한부여),&amp;nbsp;revoke(권한회수)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="280" y="400" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--33" value="계정 관리" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="280" y="440" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--34" value="TCL" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="600" y="360" width="80" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--35" value="Transaction 제어" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="680" y="360" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--36" value="START TRANSACTION, commit, rollback, savepoint" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="680" y="400" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--37" value="데이터(인스턴스)를 사용하여 CRUD처리" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="680" y="440" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--39" value="&lt;div&gt;domain : 영역, 범위&lt;/div&gt;&lt;div&gt;revoke : 폐지하다&lt;/div&gt;&lt;div&gt;grant : 승인하다, 인정하다&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=center;" parent="1" vertex="1">
+          <mxGeometry x="680" y="200" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="JT3cQ0A9jjJeMYMFLiq--40" value="&lt;div&gt;row = record = 튜플&amp;nbsp;&lt;/div&gt;&lt;div&gt;column = field = attribute&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="680" y="250" width="250" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
