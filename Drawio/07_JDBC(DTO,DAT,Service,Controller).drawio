@@ -1,0 +1,79 @@
+<mxfile host="Electron" modified="2024-01-09T00:29:14.732Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="JA4QHM5E8CvWHPScUb5o" version="22.1.2" type="device">
+  <diagram name="페이지-1" id="rIRV6BOJe85_BEw2x9zD">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-1" value="DTO" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="120" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-2" value="DAO" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-3" value="SERVICE" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-4" value="CONTROLLER" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-5" value="&amp;nbsp; &amp;nbsp; 계층간의 데이터를 교환하기 위한 객체&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="160" y="40" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-6" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;VO&lt;/span&gt;&lt;/div&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="70" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-7" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;DTO&lt;/span&gt;&lt;/div&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="280" y="70" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-9" value="&lt;div style=&quot;&quot;&gt;DTO와 유사,&lt;/div&gt;&lt;div style=&quot;&quot;&gt;Read Only ,&lt;/div&gt;&lt;div style=&quot;&quot;&gt;불변객체&lt;/div&gt;&lt;div style=&quot;&quot;&gt;(immutable object)&lt;/div&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="100" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-10" value="&lt;div style=&quot;&quot;&gt;가변객체&lt;/div&gt;&lt;div style=&quot;&quot;&gt;(mutable object)&lt;/div&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="280" y="100" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-11" value="&lt;div style=&quot;&quot;&gt;&amp;nbsp; Spring MyBatis&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&amp;nbsp; &amp;nbsp; - 주로 VO로 표현&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&amp;nbsp; &amp;nbsp; - 떄떄로 DTO&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&amp;nbsp; Spring JPA&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&amp;nbsp; &amp;nbsp; - Entity라고 표현&lt;/div&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="400" y="70" width="120" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-12" value="Entity" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-13" value="&amp;nbsp; &amp;nbsp; Spring JPA를 사용하면 객체와 table을 구체적으로 매핑하기때문에 Entity로 구문함" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="160" y="440" width="480" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-14" value="&amp;nbsp; &amp;nbsp; 실제 DB테이블과 매핑되는 클래스, 가변객체" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="160" y="470" width="480" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-15" value="Domain" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-16" value="&amp;nbsp; &amp;nbsp; 도출된 결과물을 모델객체라 하고 이것을 Entity와 Value로 구분" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="160" y="550" width="480" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-17" value="&amp;nbsp; &amp;nbsp; 어플리케이션 내 로직들이 관여하는 정보와 활동의 영역 (해결 하고자 하는 업무 영역)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="160" y="520" width="480" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-18" value="&lt;div style=&quot;&quot;&gt;private 맴버변수&lt;/div&gt;&lt;div style=&quot;&quot;&gt;생성자&lt;/div&gt;&lt;div style=&quot;&quot;&gt;setter/getter&lt;/div&gt;&lt;div style=&quot;&quot;&gt;toString() 오버라이딩&lt;/div&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="520" y="40" width="120" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-19" value="&amp;nbsp; &amp;nbsp; SQL 구문 처리, CRUD 구현&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="160" y="200" width="480" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-21" value="&amp;nbsp; &amp;nbsp; 결과를 직접 처리하지 않고 요청자에게 제공 -&amp;gt; 역할별로 처리결과 객체형태로 return&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="160" y="230" width="480" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-22" value="&amp;nbsp; &amp;nbsp; Controller 요청에 해당하는 DAO의 메서드를 실행&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="160" y="280" width="480" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-23" value="&amp;nbsp; &amp;nbsp; Controller 와 DAO의 중간에 위치하면서 둘의 의존성을 낮추어줌&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="160" y="310" width="480" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-24" value="&amp;nbsp; &amp;nbsp; 요청 -&amp;gt; Controller -&amp;gt; Service -&amp;gt; DAO&amp;nbsp;&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="160" y="360" width="480" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6dC3EdAIbW6da6Da4MyK-25" value="&amp;nbsp; &amp;nbsp; 결과 -&amp;gt; DAO -&amp;gt; Service -&amp;gt; Controller&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="160" y="390" width="480" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

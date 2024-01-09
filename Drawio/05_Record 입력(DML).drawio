@@ -1,0 +1,58 @@
+<mxfile host="Electron" modified="2024-01-05T10:02:07.510Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="EtG8YrHtseZ9ct_d58iQ" version="22.1.2" type="device">
+  <diagram name="페이지-1" id="dOFaSrsbg32KWVQ8-MkX">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="6pNl_peHHAhjkuMz2qzs-1" value="INSERT" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="30" y="40" width="90" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6pNl_peHHAhjkuMz2qzs-2" value="&amp;nbsp; &amp;nbsp; INSERT INTO student&lt;br&gt;&amp;nbsp; &amp;nbsp; VALUES (2,&#39;최문석&#39;,31,1,&quot;자기소개&quot;,NULL);" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;verticalAlign=top;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="40" width="250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6pNl_peHHAhjkuMz2qzs-3" value="&amp;nbsp; &amp;nbsp; INSERT INTO student(name,age)&lt;br&gt;&amp;nbsp; &amp;nbsp; VALUES (&#39;최문석&#39;,31);" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;verticalAlign=top;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6pNl_peHHAhjkuMz2qzs-4" value="SELECT" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="30" y="130" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6pNl_peHHAhjkuMz2qzs-5" value="&amp;nbsp; &amp;nbsp; SELECT *&lt;br&gt;&amp;nbsp; &amp;nbsp; FROM student&lt;br&gt;&amp;nbsp; &amp;nbsp; WHERE name=&#39;최문석&#39;;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="130" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6pNl_peHHAhjkuMz2qzs-6" value="DELETE" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="30" y="200" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6pNl_peHHAhjkuMz2qzs-7" value="&amp;nbsp; &amp;nbsp; DELETE&lt;br&gt;&amp;nbsp; &amp;nbsp; FROM student&lt;br&gt;&amp;nbsp; &amp;nbsp; WHERE name=&#39;최문석&#39;;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="200" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6pNl_peHHAhjkuMz2qzs-8" value="UPDATE" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="30" y="270" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6pNl_peHHAhjkuMz2qzs-9" value="&amp;nbsp; &amp;nbsp; UPDATE student&lt;br&gt;&amp;nbsp; &amp;nbsp; SET info = &quot;자기소개 수정&quot;&lt;br&gt;&amp;nbsp; &amp;nbsp; WHERE name=&#39;최문석&#39;;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="270" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6pNl_peHHAhjkuMz2qzs-10" value="테이블 복사" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="340" width="90" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="6pNl_peHHAhjkuMz2qzs-11" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;테이블 구조와 데이터 모두 복사&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="340" width="380" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="6pNl_peHHAhjkuMz2qzs-12" value="&lt;div&gt;&amp;nbsp; &amp;nbsp; 컬럼 sno, name, jno 선택,&amp;nbsp; 모든 Record 복사&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; CREATE TABLE Test2 AS SELECT sno, name, jno FROM student;&lt;span style=&quot;&quot;&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="360" width="380" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6pNl_peHHAhjkuMz2qzs-13" value="&lt;div style=&quot;&quot;&gt;데이터 없이 테이블 구조만 복사&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="400" width="380" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="6pNl_peHHAhjkuMz2qzs-14" value="&amp;nbsp; &amp;nbsp; where 에서 항상 false 인 조건을 지정&lt;br&gt;&amp;nbsp; &amp;nbsp;&amp;nbsp;CREATE TABLE test5 AS SELECT * FROM student WHERE 1=2;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="420" width="380" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6pNl_peHHAhjkuMz2qzs-15" value="&lt;div style=&quot;&quot;&gt;이미 만들어진 Table에 다른 Table의 자료들 복사하기&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="460" width="380" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="6pNl_peHHAhjkuMz2qzs-16" value="&lt;div&gt;&amp;nbsp; &amp;nbsp; student 의 name, age 를 test 테이블에 입력&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; INSERT INTO test(name, age) SELECT name, age FROM student;&lt;span style=&quot;&quot;&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="480" width="380" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
