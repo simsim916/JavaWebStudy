@@ -1,0 +1,46 @@
+<mxfile host="Electron" modified="2024-01-10T10:42:15.421Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="eyGCZYoZ1sJ2CM-dFvaM" version="22.1.2" type="device">
+  <diagram name="페이지-1" id="ZRKYlS0R_qa0dtRgEeQL">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-1" value="Web Server" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-2" value="WAS&lt;br&gt;(Web Application Server)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="360" y="40" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-5" value="DBMS" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="640" y="40" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-6" value="Client" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-7" value="Client" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-8" value="&amp;nbsp; &amp;nbsp; 웹을 사용하는 사용자 (디바이스 장치)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="200" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-9" value="Web Server" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="250" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-10" value="&amp;nbsp; &amp;nbsp; Client의 요청을 받아 정적 컨텐츠를 제동하는 서버" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="250" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-11" value="정적컨텐츠" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="520" y="200" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-12" value="단순 문서, CSS, JS, 이미지 등...&lt;br&gt;즉시 응답 가능한 컨텐츠" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="520" y="240" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-13" value="WAS" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="300" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-14" value="&amp;nbsp; &amp;nbsp; Client의 요청을 받아 정적 컨텐츠를 제동하는 서버" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="120" y="300" width="360" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
