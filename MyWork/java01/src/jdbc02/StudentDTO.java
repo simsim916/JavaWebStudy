@@ -56,7 +56,7 @@ package jdbc02;
 // => setter 메서드
 // => 생성자
 
-public class StudentDTO {
+public class StudentDTO extends JoDTO{
 	// 1) private 맴버변수를 정의
 	private int sno;
 	private String name;
@@ -129,12 +129,12 @@ public class StudentDTO {
 		this.point = point;
 	}
 
-	// 3) toString 메서드
-	// => Object 에 정의된 toString 메서드를 오버라이드 하여 활용
 	@Override
 	public String toString() {
 		return "StudentDTO [sno=" + sno + ", name=" + name + ", age=" + age + ", jno=" + jno + ", info=" + info
-				+ ", point=" + point + "]";
+				+ ", point=" + point + ", getJname()=" + getJname() + ", getCaptain()=" + getCaptain()
+				+ ", getProject()=" + getProject() + ", getSlogan()=" + getSlogan() + ", toString()=" + super.toString()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
 	}
 
 }

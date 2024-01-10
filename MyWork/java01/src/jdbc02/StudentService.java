@@ -12,6 +12,11 @@ public class StudentService {
 	// ** 전역변수 정의
 	StudentDAO dao = new StudentDAO();
 	
+	// ** joinList
+	public List<StudentDTO> joinList(){
+		return dao.joinList();
+	}
+	
 	// ** selectList
 	public List<StudentDTO> selectList(){
 		return dao.selectList();
@@ -31,6 +36,14 @@ public class StudentService {
 	// ** delete
 	public int delete(int sno) {
 		return dao.delete(sno);
+	}
+	
+	// ** Transaction Test
+	public void transactionTest() {
+		dao.transactionTest();
+	}
+	public void transactionTest2() {
+		dao.transactionTest2();
 	}
 	
 } // class

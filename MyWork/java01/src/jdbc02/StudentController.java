@@ -12,8 +12,21 @@ public class StudentController {
 	StudentService service = new StudentService();
 	
 	// ** View 역할 메서드
-	// selectList
+	// joinList
+	public void printJoinList(List<StudentDTO> list) {
+		System.out.println("**** Student List ****");
+		// 출력자료의 존재 확인
+		if (list != null) {
+			// ** List 출력
+			for(StudentDTO i: list) {
+				System.out.println(i);
+			}
+		} else {
+			System.out.println("출력할 데이터가 없습니다.");
+		}
+	}
 	
+	// selectList
 	public void printList(List<StudentDTO> list) {
 		System.out.println("**** Student List ****");
 		// 출력자료의 존재 확인
@@ -69,11 +82,14 @@ public class StudentController {
 		// 처리결과를 view 에 전달해서 출력
 //		sc.printList(sc.service.selectList());
 		
+//		sc.printJoinList(sc.service.joinList());
 		
-		sc.insert(sc.service.insert(new StudentDTO(0, "테스트",32,9,"자기소개",0)));
+//		sc.insert(sc.service.insert(new StudentDTO(0, "테스트",32,9,"자기소개",0)));
 //		sc.printOne(sc.service.selectOne(19));
 //		sc.update(sc.service.update(new StudentDTO(0, "테스트2",32,9,"자기소개2",0)));
-		sc.printOne(sc.service.selectOne(99));
+//		sc.printOne(sc.service.selectOne(99));
 //		sc.delete(sc.service.delete(19));
+		
+		sc.service.transactionTest2();
 	} // main
 } // class

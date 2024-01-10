@@ -27,7 +27,43 @@ public class StudentDAO {
 	private static PreparedStatement pst;
 	private static ResultSet rs;
 	private static String sql;
-
+	
+	// ** Join Test
+	// => sno, name, age, jno, jname, project, captain, captain.name
+	// => JoDTO 만들기, 메서드 작성 ( Controller, service, DAO )
+	
+	public List<StudentDTO> joinList() {
+		sql= "SELECT s.sno, s.name, s.age, s.jno, j.jname, j.project, j.captain "
+				+ "FROM student s LEFT JOIN jo j ON s.jno=j.jno";
+		List<StudentDTO> list = new ArrayList<StudentDTO>();
+		
+		try {
+			pst=cn.prepareStatement(sql);
+			rs=pst.executeQuery();
+			
+			if(rs.next()) {
+				do {
+					
+				StudentDTO dto = new StudentDTO();
+				dto.setSno(rs.getInt(1));
+				dto.setName(rs.getString(2));
+				dto.setAge(rs.getInt(3));
+				dto.setJno(rs.getInt(4));
+				dto.setJname(rs.getString(5));
+				dto.setProject(rs.getString(6));
+				dto.setCaptain(rs.getInt(7));
+				
+				list.add(dto);
+				} while (rs.next());
+			}
+			return list;
+			
+		} catch (Exception e) {
+			System.out.println("** joinList Exception => " + e.toString());
+			return null;
+		}
+	}
+	
 	// ** selectList
 	public List<StudentDTO> selectList() {
 		sql = "SELECT * FROM student";
@@ -143,4 +179,53 @@ public class StudentDAO {
 			return 0;
 		}
 	}
+	
+	 // ** Transaction Test
+	 // => Connection 객체가 관리
+	 // => 기본값은 AutoCommit  true 임.
+	 // => setAutoCommit(false) -> commit 또는 rollback 
+	 // => Test 사항
+	 //   - 동일자료를 2번 입력 -> 2번째 입력에서 p.key 중복 오류발생 
+
+	 // 1) Transaction 적용전
+	 // => 동일자료를 2번 입력
+	 //   - 1번째는 입력완료 되고, 2번째 입력에서 p.key 중복 오류발생 
+	 //   - Rollback 불가능
+	 //   - MySql Command 로 1번째 입력 확인 가능 
+	public void transactionTest() {
+		sql = "INSERT INTO student VALUES (19, '김길동' , 35 , 9 , '자기소개', 100)";
+		
+		try {
+			pst = cn.prepareStatement(sql);
+			pst.executeUpdate(); // 1
+			pst.executeUpdate(); // 0 p.key 종복오류 발생 -> catch 블럭으로 이동
+		} catch (Exception e) {
+			System.out.println("Transaction 적용전 , transactionTest => "+ e);
+		}
+	}
+	 // 2) Transaction 적용후 
+	 // => 동일자료를 2번 입력 
+	 //   - 1번째는 입력완료 되고, 2번째 입력에서 p.key 중복 오류발생
+	 //   - Rollback 가능 -> 둘다 취소됨
+	public void transactionTest2() {
+		sql = "INSERT INTO student VALUES (30, '김길동' , 35 , 9 , '자기소개', 100)";
+		
+		try {
+			cn.setAutoCommit(false); // Start Transaction
+			pst = cn.prepareStatement(sql);
+			pst.executeUpdate(); // 1 입력완료 되었지만 Buffer에 보관
+			pst.executeUpdate(); // 0 p.key 종복오류 발생 -> catch 블럭 -> rollback
+			cn.commit();
+		} catch (Exception e) {
+			System.out.println("** Transaction 적용후 , transactionTest => "+ e);
+			try {
+				cn.rollback();
+				System.out.println("** Rollback 성공 **");
+			} catch (Exception e2) {
+				System.out.println("** Transaction 적용후 롤백 오류 , transactionTest => "+ e);
+			}
+		}
+	}
+	
+	
 } // class
