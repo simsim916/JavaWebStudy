@@ -1,0 +1,37 @@
+<mxfile host="Electron" modified="2024-01-11T04:31:18.562Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="smitgrhuKJjs9Yr5mQaE" version="22.1.2" type="device">
+  <diagram name="페이지-1" id="CUM2G2Wno_X70dwvrKsA">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="vaeIeiuyZtVP2ewylF8W-1" value="get 방식" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="80" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="vaeIeiuyZtVP2ewylF8W-3" value="http header에 정보를 전달 / 기본 정보 전달 방식" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="120" y="40" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vaeIeiuyZtVP2ewylF8W-4" value="URL 뒤에 파라미터의 값을 붙임 (쿼리스트링)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vaeIeiuyZtVP2ewylF8W-5" value="웹 브라우저, 사용자 환경에 따라 데이터 전달의 한계 (256~512 byte)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="120" y="120" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vaeIeiuyZtVP2ewylF8W-6" value="전달 속도가 빠름 / doGet() 메소드 호출" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="120" y="160" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vaeIeiuyZtVP2ewylF8W-7" value="post 방식" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="80" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="vaeIeiuyZtVP2ewylF8W-8" value="http body에 정보를 전달" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="120" y="220" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vaeIeiuyZtVP2ewylF8W-9" value="데이터 사이즈에 제한이 없음" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="120" y="260" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vaeIeiuyZtVP2ewylF8W-10" value="보안에 용이함 / doPost() 메소드 호출" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="120" y="300" width="360" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,118 @@
+<mxfile host="Electron" modified="2024-01-11T09:26:20.125Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="Cb67212Hx101JmeI1CNI" version="22.1.2" type="device">
+  <diagram name="페이지-1" id="5IMKOoTj2aeQ9GADqC1P">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-1" value="Request" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="40" width="600" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-2" value="&lt;font face=&quot;a고딕14&quot;&gt;HTTP Method, 기본페이지, 프로토콜&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-3" value="&lt;font face=&quot;a고딕14&quot;&gt;Accept&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="140" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-4" value="&lt;font face=&quot;a고딕14&quot;&gt;Referer&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="180" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-5" value="&lt;font face=&quot;a고딕14&quot;&gt;Host&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="380" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-6" value="&lt;font face=&quot;a고딕14&quot;&gt;Content-length&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="420" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-7" value="&lt;font face=&quot;a고딕14&quot;&gt;Pragma&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="460" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-8" value="&lt;font face=&quot;a고딕14&quot;&gt;Cookie&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="500" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-9" value="&lt;font face=&quot;a고딕14&quot;&gt;GET http://localhost:8080 HTTP1.0&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="100" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-10" value="&lt;font face=&quot;a고딕14&quot;&gt;*/* (모든 문서를 처리 할 수 있다)&lt;br&gt;(웹 서버로부터 수신되는 데이터 중 웹 브라우저가 처리할 수 있는 데이터 타입)&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="140" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-11" value="&lt;font face=&quot;a고딕14&quot;&gt;http://localhost:8080/sample/board/List.jsp&lt;br&gt;(현재 페이지 접속 전에 어느 사이트를 경유 했는지)&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="180" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-12" value="&lt;font face=&quot;a고딕14&quot;&gt;localhost:8080&lt;br&gt;(사용자가 요청한 도메인 정보)&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="380" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-13" value="&lt;font face=&quot;a고딕14&quot;&gt;0&lt;br&gt;(요청에 사용되는 내용의 길이)&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="420" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-14" value="&lt;font face=&quot;a고딕14&quot;&gt;Accept-Language&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="220" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-15" value="&lt;font face=&quot;a고딕14&quot;&gt;ko&lt;br&gt;(클라이언트에서 사용하는 언어)&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="220" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-16" value="&lt;font face=&quot;a고딕14&quot;&gt;Content-Type&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="260" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-17" value="&lt;font face=&quot;a고딕14&quot;&gt;application/x-ww-form-unlencoded&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="260" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-24" value="&lt;font face=&quot;a고딕14&quot;&gt;Proxy-Connection&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="300" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-25" value="&lt;font face=&quot;a고딕14&quot;&gt;Keep-Alive&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="300" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-26" value="&lt;font face=&quot;a고딕14&quot;&gt;User-Agent&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="340" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-27" value="&lt;font face=&quot;a고딕14&quot;&gt;Chrome&lt;br&gt;(사용자의 웹 브라우저 종류 및 버전 정보)&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="340" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-30" value="&lt;font face=&quot;a고딕14&quot;&gt;no-cache&lt;br&gt;(캐시된 문서를 사용하지 말고 매번 새로운 문서를 다시 전송받도록)&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="460" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-31" value="&lt;font face=&quot;a고딕14&quot;&gt;asdfasdffasd&lt;br&gt;(로그인 인증을 위한 사용자 정보를 기억하려고 만든 인위적인 값)&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="500" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-32" value="Response" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="560" width="600" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-33" value="&lt;font face=&quot;a고딕14&quot;&gt;웹 프로토콜 버전 및 응답 코드&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="620" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-34" value="&lt;font face=&quot;a고딕14&quot;&gt;Server&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="660" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-35" value="&lt;font face=&quot;a고딕14&quot;&gt;Referer&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="700" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-40" value="&lt;font face=&quot;a고딕14&quot;&gt;HTTP/1.1 200 OK&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="620" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-41" value="&lt;font face=&quot;a고딕14&quot;&gt;Apache-Coyote/1.1&lt;br&gt;(웹 어플리케이션 서버의 종류 및 버전 정보가 포함)&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="660" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-42" value="&lt;font face=&quot;a고딕14&quot;&gt;http://localhost:8080/sample/board/List.jsp&lt;br&gt;(현재 페이지 접속 전에 어느 사이트를 경유 했는지)&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="700" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-45" value="&lt;font face=&quot;a고딕14&quot;&gt;Accept-Language&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="740" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-46" value="&lt;font face=&quot;a고딕14&quot;&gt;ko&lt;br&gt;(클라이언트에서 사용하는 언어)&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="740" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-47" value="&lt;font face=&quot;a고딕14&quot;&gt;Content-Type&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="780" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-48" value="&lt;font face=&quot;a고딕14&quot;&gt;application/x-ww-form-unlencoded&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="780" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-49" value="&lt;font face=&quot;a고딕14&quot;&gt;Proxy-Connection&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="820" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h8G0jGDXR4k_7RuWxq_h-50" value="&lt;font face=&quot;a고딕14&quot;&gt;Keep-Alive&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="820" width="400" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

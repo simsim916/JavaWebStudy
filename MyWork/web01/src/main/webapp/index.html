@@ -7,9 +7,33 @@
 <body>
 <h2>** Dynamic Web Project **</h2>
 <h2> 안녕하세요 ~~~ Web !!!</h2>
-<form action="hello" method="get">
-	<input type="text" name="id">
+<form action="getpost" method="get">
+	<input type="text" name="id" value="abcd">
+	<input type="text" name="name" value="가나다라">
 	<input type="submit" value="Test">
 </form>
+<form action="list">
+    <input type ="submit" value="학생조회">
+</form>
+<hr>
+<!-- 
+	** 경로포기
+	  => 절대경로 : /로 시작, 프로젝트명부터표기 
+	  			  /web01/images/a1.png
+	  			  ( webapp 폴더는 생략됨 )
+	  => 상대경로 : ./ 현재위치에서 시작, /로 시작하면안됨
+	  			  ./ : 현재위치, ../ 1단계 상위
+	  			  ./images/a1.png, images/a1.png 동일
+ -->
+<img alt="asd" src="./images/a1.png" width="300px">
+<hr>
+<a href="/web01/hello">Hello</a>
+<a href="/web01/list">M01List</a>
+<a href="/web01/life">LifeCycle</a>
+<br>
+<a href="/web01/servletTestForm/form01_Adder.html">Adder</a>
+<a href="/web01/servletTestForm/form02_Radio.jsp">Radio</a>
+<a href="/web01/servletTestForm/form03_Check.jsp">Check</a>
+<a href="/web01/servletTestForm/form04_Select.jsp">Select</a>
 </body>
 </html>

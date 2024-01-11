@@ -1,0 +1,148 @@
+<mxfile host="Electron" modified="2024-01-11T08:51:59.747Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="eIH85rkE588xpKT50IMg" version="22.1.2" type="device">
+  <diagram name="페이지-1" id="2BeYQi6500mdqpWa1v9C">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-3" value="응답코드" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="640" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-4" value="1XX" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-7" value="&amp;nbsp; 클라이언트의 요청을 받았으며 작업을 계속 진행하고 있다." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="60" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-8" value="&amp;nbsp; OK (요청이 성공적으로 수행되었음)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="280" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-9" value="200" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="160" y="280" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-10" value="201" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="160" y="320" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-11" value="&amp;nbsp; Created (PUT 메서드에 의해 원격자 서버에 파일이 정상적으로 생성됨)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="320" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-12" value="202" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="160" y="360" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-13" value="&amp;nbsp; Accepted (웹서버가 명령 수신함)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="360" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-18" value="301" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="160" y="420" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-19" value="&amp;nbsp; Moved permanently (요청 URL 정보를 타 URL에 요청함)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="420" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-20" value="Informational" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="60" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-21" value="2XX" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-22" value="Success" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-23" value="&amp;nbsp; 클라이언트가 요청한 동작을 수신하여 이해하였고 승낙하였으며 성공적으로 처리하였다.&lt;span style=&quot;box-sizing: border-box; font-weight: 700; color: rgb(51, 51, 51); font-family: &amp;quot;Noto Sans KR&amp;quot;; font-size: 15px;&quot;&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="100" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-24" value="3XX" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-25" value="Redirection" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="140" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-26" value="&amp;nbsp; 클라이언트는 요청을 마치기 위해 추가 동작을 취해야 한다." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="140" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-27" value="4XX" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-28" value="Client Error" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="180" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-29" value="&amp;nbsp; 클라이언트의 요청에 오류가 있다." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="180" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-30" value="5XX" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-31" value="Server Error" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="220" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-32" value="&amp;nbsp; 클라이언트의 요청은 유효한데 서버가 처리에 실패하였다." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="220" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-34" value="200&lt;br&gt;(성공)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-35" value="300&lt;br&gt;(리다이렉션)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="420" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-36" value="303" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="160" y="460" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-37" value="&amp;nbsp; 다른 위치로 요청하라 (Form 요청을 Post 로 처리하고 그 결과 화면으로 리다이렉트 할 때)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="460" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-38" value="307" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="160" y="500" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-39" value="&amp;nbsp; 임시로 리다이렉션 요청이 필요하다." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="500" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-40" value="400" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="160" y="560" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-41" value="&amp;nbsp; 요청의 구문이 잘못되었다." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="560" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-42" value="400&lt;br&gt;(클라이언트 에러)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="120" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-43" value="401" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="160" y="600" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-44" value="&amp;nbsp; 지정한 리소스에 대한 엑세스 권한이 없다." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="600" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-45" value="403" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="160" y="640" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-46" value="&amp;nbsp; 지정한 리소스에 대한 엑서스가 금지되었다." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="640" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-47" value="404" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="160" y="680" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-48" value="&amp;nbsp; 지정한 리소스를 찾을 수 없다." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="680" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-49" value="500&lt;br&gt;(서버 에러)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="740" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-50" value="500" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="160" y="740" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-51" value="&amp;nbsp; 서버에 에러가 발생하였다." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="740" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-54" value="501" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="160" y="780" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-55" value="&amp;nbsp; 요청한 URL의 메서드에 서버가 구현하고 있지 않다." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="780" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-56" value="502" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="160" y="820" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CoAtoJRMWgtC5Fl0nmjt-57" value="&amp;nbsp; 게이트웨이 또는 프록시 역할을 하는 서버가 그 뒷단의 서버로부터 잘못된 응답을 받았다." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="820" width="480" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

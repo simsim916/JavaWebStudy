@@ -1,44 +1,137 @@
-<mxfile host="Electron" modified="2024-01-10T10:42:15.421Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="eyGCZYoZ1sJ2CM-dFvaM" version="22.1.2" type="device">
+<mxfile host="Electron" modified="2024-01-11T04:55:21.376Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="xdynQHo6p5qapkVCyGbk" version="22.1.2" type="device">
   <diagram name="페이지-1" id="ZRKYlS0R_qa0dtRgEeQL">
-    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="989" dy="577" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="ibpFdhyaBFl-nuCksJzk-1" value="Web Server" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
-          <mxGeometry x="200" y="40" width="120" height="120" as="geometry" />
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-1" value="Web Server" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="210" y="40" width="100" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="ibpFdhyaBFl-nuCksJzk-2" value="WAS&lt;br&gt;(Web Application Server)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
-          <mxGeometry x="360" y="40" width="240" height="120" as="geometry" />
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-2" value="WAS&lt;br&gt;(Web Application Server)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="370" y="40" width="220" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="ibpFdhyaBFl-nuCksJzk-5" value="DBMS" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
-          <mxGeometry x="640" y="40" width="120" height="120" as="geometry" />
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-5" value="DBMS" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="650" y="40" width="100" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="ibpFdhyaBFl-nuCksJzk-6" value="Client" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="120" height="120" as="geometry" />
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-6" value="Client" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
+          <mxGeometry x="50" y="40" width="100" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="ibpFdhyaBFl-nuCksJzk-7" value="Client" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-7" value="Client" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
           <mxGeometry x="40" y="200" width="80" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="ibpFdhyaBFl-nuCksJzk-8" value="&amp;nbsp; &amp;nbsp; 웹을 사용하는 사용자 (디바이스 장치)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-8" value="&amp;nbsp; &amp;nbsp; 웹을 사용하는 사용자 (디바이스 장치)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" parent="1" vertex="1">
           <mxGeometry x="120" y="200" width="360" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="ibpFdhyaBFl-nuCksJzk-9" value="Web Server" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-9" value="Web Server" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
           <mxGeometry x="40" y="250" width="80" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="ibpFdhyaBFl-nuCksJzk-10" value="&amp;nbsp; &amp;nbsp; Client의 요청을 받아 정적 컨텐츠를 제동하는 서버" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-10" value="&amp;nbsp; &amp;nbsp; Client의 요청을 받아 정적 컨텐츠를 제동하는 서버" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" parent="1" vertex="1">
           <mxGeometry x="120" y="250" width="360" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="ibpFdhyaBFl-nuCksJzk-11" value="정적컨텐츠" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-11" value="정적컨텐츠" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
           <mxGeometry x="520" y="200" width="240" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="ibpFdhyaBFl-nuCksJzk-12" value="단순 문서, CSS, JS, 이미지 등...&lt;br&gt;즉시 응답 가능한 컨텐츠" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=center;" vertex="1" parent="1">
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-12" value="단순 문서, CSS, JS, 이미지 등...&lt;br&gt;즉시 응답 가능한 컨텐츠" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=center;" parent="1" vertex="1">
           <mxGeometry x="520" y="240" width="240" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="ibpFdhyaBFl-nuCksJzk-13" value="WAS" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-13" value="WAS" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" parent="1" vertex="1">
           <mxGeometry x="40" y="300" width="80" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="ibpFdhyaBFl-nuCksJzk-14" value="&amp;nbsp; &amp;nbsp; Client의 요청을 받아 정적 컨텐츠를 제동하는 서버" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" vertex="1" parent="1">
+        <mxCell id="ibpFdhyaBFl-nuCksJzk-14" value="&amp;nbsp; &amp;nbsp; Client의 요청을 받아 정적 컨텐츠를 제동하는 서버" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;align=left;" parent="1" vertex="1">
           <mxGeometry x="120" y="300" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-1" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="70" as="sourcePoint" />
+            <mxPoint x="200" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-8" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="70" as="sourcePoint" />
+            <mxPoint x="360" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-9" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="70" as="sourcePoint" />
+            <mxPoint x="640" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-10" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="130" as="sourcePoint" />
+            <mxPoint x="600" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-11" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="360" y="130" as="sourcePoint" />
+            <mxPoint x="320" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-12" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="130" as="sourcePoint" />
+            <mxPoint x="160" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-13" value="request" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="150" y="30" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-14" value="response" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="150" y="140" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-16" value="Presentation Layer" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="410" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-17" value="Business Layer" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="260" y="410" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-18" value="Persistence Layer" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="480" y="410" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-19" value="Data Access Layer" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="480" y="430" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-20" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="430" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-21" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="430" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-22" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="450" width="200" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-23" value="전자정부 프레임워크 Architeture" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="360" width="720" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="6cNo6_F5tBslJrkP1gVf-24" target="6cNo6_F5tBslJrkP1gVf-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-24" value="Controller" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="100" y="440" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="6cNo6_F5tBslJrkP1gVf-28" target="6cNo6_F5tBslJrkP1gVf-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-28" value="Service" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="310" y="440" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="6cNo6_F5tBslJrkP1gVf-31" target="6cNo6_F5tBslJrkP1gVf-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-31" value="VO,DTO" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="430" y="610" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="6cNo6_F5tBslJrkP1gVf-32" target="6cNo6_F5tBslJrkP1gVf-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-32" value="DAO" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=a고딕14;" vertex="1" parent="1">
+          <mxGeometry x="540" y="610" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6cNo6_F5tBslJrkP1gVf-33" value="DBMS" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="700" y="590" width="60" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
