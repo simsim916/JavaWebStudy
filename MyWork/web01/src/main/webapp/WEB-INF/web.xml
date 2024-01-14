@@ -27,4 +27,12 @@
  		<url-pattern>/안녕</url-pattern>
  		<url-pattern>/123</url-pattern>
  	</servlet-mapping>
+ 	
+ 	<!-- 
+ 		Session Time 설정
+ 		=> 분단위, 0 또는 음수 사용시 무한시간 
+ 	-->
+ 	<!-- <session-config>
+ 		<session-timeout>1</session-timeout>
+ 	</session-config> -->
 </web-app>
