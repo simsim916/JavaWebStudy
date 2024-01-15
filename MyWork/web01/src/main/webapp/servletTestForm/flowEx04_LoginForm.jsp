@@ -27,11 +27,11 @@
 </table>
 </form>
 <hr>
-<%-- <%	if ( request.getAttribute("message") !=null ) {
+<%	if ( request.getAttribute("message") !=null ) {
 	// message 출력 %>
 	=> message: <%=request.getAttribute("message")%>
 <%	} %> 
-
+<%--
 	** JSTL 적용하기
 --%>
 <%-- <c:if test="${not empty requestScope.message}">

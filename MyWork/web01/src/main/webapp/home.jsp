@@ -1,12 +1,24 @@
+<%@page import="mvcTest.StudentDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>|| Home ||</title>
 </head>
 <body>
 <h2>** Dynamic Web Project **</h2>
-<h2> 안녕하세요 ~~~ Web !!!</h2>
+<hr>
+ 
+<%
+ StudentDTO dto = (StudentDTO)session.getAttribute("StudentDTO");
+	if(dto!=null){%>
+		<h2><%=dto.getName() %>님 안녕하세요 ~~~ Web !!!</h2>
+<%	} else {%>
+	<h3>로그인 후 이용하세요~~</h3>
+<%}%>
+
 <form action="getpost" method="get">
 	<input type="text" name="id" value="abcd">
 	<input type="text" name="name" value="가나다라">
@@ -16,15 +28,6 @@
     <input type ="submit" value="학생조회">
 </form>
 <hr>
-<!-- 
-	** 경로포기
-	  => 절대경로 : /로 시작, 프로젝트명부터표기 
-	  			  /web01/images/a1.png
-	  			  ( webapp 폴더는 생략됨 )
-	  => 상대경로 : ./ 현재위치에서 시작, /로 시작하면안됨
-	  			  ./ : 현재위치, ../ 1단계 상위
-	  			  ./images/a1.png, images/a1.png 동일
- -->
 <img alt="asd" src="./images/a1.png" width="300px">
 <hr>
 <a href="/web01/servletTestForm/flowEx04_LoginForm.jsp">LoginForm</a>
@@ -42,6 +45,7 @@
 <a href="/web01/sessioni">SessionI</a><br>
 
 <a href="/web01/jsp01/ex01_HelloJsp.jsp">HelloJsp</a>
-<a href="/web01/jsp01/ex02_mvc01List.jsp">MemberList</a>
+<a href="/web01/jsp01/ex02_mvc01List.jsp">M01List</a>
+<a href="/web01/list2">M02List</a>
 </body>
 </html>

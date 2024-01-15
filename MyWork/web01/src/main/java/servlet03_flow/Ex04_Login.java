@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.mysql.cj.Session;
+
 import mvcTest.StudentDTO;
 import mvcTest.StudentService;
 
@@ -23,7 +25,7 @@ public class Ex04_Login extends HttpServlet {
 		// 1. 요청분석 -> 한글, request의 parameter
 		request.setCharacterEncoding("utf-8");
 		System.out.println("로그인 시도");
-		String uri="index.html";
+		String uri="home.jsp";
 		try {
 			int sno = 0;
 			if ( request.getParameter("sno")!=null && request.getParameter("sno").length()>0){
@@ -39,11 +41,13 @@ public class Ex04_Login extends HttpServlet {
 			StudentDTO dto=sc.selectOne(sno);
 			System.out.println("로그인시도");
 			if(name.equals(dto.getName())) {
-				request.getSession().setAttribute("loginDTO", dto);
+				HttpSession session = request.getSession();
+				session.setAttribute("StudentDTO", dto);
 				System.out.println("** 로그인 성공 **");
 				System.out.println("** 로그인 student => "+dto);
 			}else {
-				uri="/web01/adder";
+				uri="servletTestForm/flowEx04_LoginForm.jsp";
+				request.setAttribute("message", "로그인에 실패하였습니다.");
 				System.out.println("로그인실패");
 			}
 			
