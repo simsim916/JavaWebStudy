@@ -16,7 +16,7 @@ public class Ex04_Loginout extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("urf-8");
+		request.setCharacterEncoding("utf-8");
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
 		

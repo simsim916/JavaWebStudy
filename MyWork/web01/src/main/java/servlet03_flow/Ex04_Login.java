@@ -21,10 +21,15 @@ public class Ex04_Login extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1. 요청분석 -> 한글, request의 parameter
-		request.setCharacterEncoding("urf-8");
+		request.setCharacterEncoding("utf-8");
+		System.out.println("로그인 시도");
 		String uri="index.html";
 		try {
-			int sno = Integer.parseInt(request.getParameter("sno"));
+			int sno = 0;
+			if ( request.getParameter("sno")!=null && request.getParameter("sno").length()>0){
+				sno = Integer.parseInt(request.getParameter("sno"));
+			}
+					
 			String name = request.getParameter("name");
 			
 			// 2. service
@@ -32,8 +37,14 @@ public class Ex04_Login extends HttpServlet {
 			// 확인결과 성공 -> name 확인
 			StudentService sc = new StudentService();
 			StudentDTO dto=sc.selectOne(sno);
-			if(!name.equals(dto.getName())) {
-				uri="web01/servletTestForm/flowEx04_LoginForm.jsp";
+			System.out.println("로그인시도");
+			if(name.equals(dto.getName())) {
+				request.getSession().setAttribute("loginDTO", dto);
+				System.out.println("** 로그인 성공 **");
+				System.out.println("** 로그인 student => "+dto);
+			}else {
+				uri="/web01/adder";
+				System.out.println("로그인실패");
 			}
 			
 			

@@ -17,7 +17,7 @@
         => 서블릿 정의 -> 매핑
         => 동일 클래스라 하더라도 매핑네임 중복은 허용하지 않음
  -->
- 	<servlet>
+  	<servlet>
  		<servlet-name>myservlet</servlet-name>
  		<servlet-class>servlet01.Ex01_HelloServlet</servlet-class>
  	</servlet>

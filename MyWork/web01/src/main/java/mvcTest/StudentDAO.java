@@ -103,6 +103,8 @@ public class StudentDAO {
 	// ** selectOne
 	public StudentDTO selectOne(int sno) {
 		sql = "SELECT * FROM student WHERE sno=?";
+		// 로그인 기능을 구현할때 password를 암호화 하기때문에
+		// DB와 직접비교 불가능, 그래서 하나의 데이터를 가져온 후 비교
 
 		try {
 			pst = cn.prepareStatement(sql);
