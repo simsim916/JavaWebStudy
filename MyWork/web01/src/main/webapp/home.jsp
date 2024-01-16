@@ -1,6 +1,7 @@
-<%@page import="mvcTest.StudentDTO"%>
+<%@ page import="mvcTest.StudentDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,11 +14,17 @@
  
 <%
  StudentDTO dto = (StudentDTO)session.getAttribute("StudentDTO");
-	if(dto!=null){%>
-		<h2><%=dto.getName() %>님 안녕하세요 ~~~ Web !!!</h2>
-<%	} else {%>
+if(dto!=null){
+session.setAttribute("name",dto.getName());
+}
+%>
+
+<c:if test="${sessionScope.StudentDTO!=null}">
+		<h2>${sessionScope.name}님 안녕하세요 ~~~ Web !!!</h2>
+</c:if>
+<c:if test="${sessionScope.StudentDTO==null}">
 	<h3>로그인 후 이용하세요~~</h3>
-<%}%>
+</c:if>
 
 <form action="getpost" method="get">
 	<input type="text" name="id" value="abcd">
@@ -30,8 +37,12 @@
 <hr>
 <img alt="asd" src="./images/a1.png" width="300px">
 <hr>
-<a href="/web01/servletTestForm/flowEx04_LoginForm.jsp">LoginForm</a>
-<a href="/web01/logout">Logout</a>
+<c:if test="${sessionScope.StudentDTO!=null}">
+	<a href="/web01/logout">Logout</a>
+</c:if>
+<c:if test="${sessionScope.StudentDTO==null}">
+	<a href="/web01/servletTestForm/flowEx04_LoginForm.jsp">LoginForm</a>
+</c:if>
 <br>
 <a href="/web01/hello">Hello</a>
 <a href="/web01/list">M01List</a>
