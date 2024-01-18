@@ -38,6 +38,7 @@ session.setAttribute("name",dto.getName());
 <img alt="asd" src="./images/a1.png" width="300px">
 <hr>
 <c:if test="${sessionScope.StudentDTO!=null}">
+	<a href="/web01/myinfo">Myinfo</a>
 	<a href="/web01/logout">Logout</a>
 </c:if>
 <c:if test="${sessionScope.StudentDTO==null}">
@@ -58,5 +59,6 @@ session.setAttribute("name",dto.getName());
 <a href="/web01/jsp01/ex01_HelloJsp.jsp">HelloJsp</a>
 <a href="/web01/jsp01/ex02_mvc01List.jsp">M01List</a>
 <a href="/web01/list2">M02List</a>
+<a href="/web01/list22">M02List2</a>
 </body>
 </html>

@@ -56,5 +56,25 @@
    </tr>
    </c:forEach>
 </table> 
+   
+   => 실습 3) 1~30 을 다음처럼 1행에 5개씩 출력하세요~<br>
+<!-- 
+1,2,3,4,5
+6,7,8,9,10
+11,12,13,14,15
+...
+............30 -->
+   
+   <c:forEach var="i" begin="1" end="30" step="1" varStatus="vs">
+   	<c:if test="${vs.count%5!=0}">${i},&nbsp;</c:if>
+   	<c:if test="${vs.count%5==0}">${i}<br></c:if>
+   </c:forEach>
+   
+   <c:forEach var="i" begin="1" end="25" step="5" varStatus="vs">
+	   <c:forEach var="j" begin="${i}" end="${i+3}" step="1" varStatus="vs">
+   			${j},&nbsp;
+	   </c:forEach>
+	   	${i+4}<br>
+   </c:forEach>
 </body>
 </html>
