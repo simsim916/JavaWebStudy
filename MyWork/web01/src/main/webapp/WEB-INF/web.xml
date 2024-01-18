@@ -33,4 +33,27 @@
  	<!-- <session-config>
  		<session-timeout>1</session-timeout>
  	</session-config> -->
+ 	
+ 	<!-- Exception Test 1 : 응답상태 코드 -->
+ 	
+ 	<error-page>
+ 		<error-code>404</error-code>
+ 		<location>/jsp04_Exception/ex02_404Page.jsp</location>
+ 	</error-page>
+ 	<error-page>
+ 		<error-code>500</error-code>
+ 		<location>/jsp04_Exception/ex02_500Page.jsp</location>
+ 	</error-page>
+ 	
+ 	
+ 	<!-- Exception test 2 : Exception Type  -->
+ 	<error-page>
+ 		<exception-type>java.lang.NullPointerException</exception-type>
+ 		<location>/jsp04_Exception/ex03_Null.jsp</location>
+ 	</error-page>
+ 	<error-page>
+ 		<exception-type>java.lang.ArithmeticException</exception-type>
+ 		<location>/jsp04_Exception/ex03_Arith.jsp</location>
+ 	</error-page>
+ 	
 </web-app>
