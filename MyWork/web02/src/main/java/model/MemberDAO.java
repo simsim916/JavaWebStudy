@@ -58,7 +58,7 @@ public class MemberDAO {
 
 	// ** selectOne
 	public MemberDTO selectOne(String id) {
-		sql = "SELECT * FROM student WHERE id=?";
+		sql = "SELECT * FROM member WHERE id=?";
 
 		try {
 			pst = cn.prepareStatement(sql);

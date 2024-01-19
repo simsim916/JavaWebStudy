@@ -10,8 +10,8 @@
 <body>
     <h2>Dynamic Web Project</h2>
     <c:choose>
-        <c:when test="${sessionScope.loginName != null }">
-            <h3>${sessionScope.loginName}님 안녕하세요</h3>
+        <c:when test="${sessionScope.mName != null }">
+            <h3>${sessionScope.mName}님 안녕하세요</h3>
         </c:when>
         <c:otherwise>
             <h3>로그인 후 이용하세요</h3>
@@ -21,26 +21,15 @@
     <img alt="" src="images/letsgo.png" width="300" height="200">
     <hr>
 
-<%--     <c:choose>
-        <c:when test="${sessionScope.loginName == null }">
-            <a href="/web01/servletTestForm/flowEx04_LoginForm.jsp">Login</a>&nbsp;
-            <a href="/web01/logout">Logout</a>
-            <br>&nbsp;
-    </c:when>
-        <c:otherwise>
-            <a href="/web01/logout">Logout</a>
-            <br>&nbsp;
-        </c:otherwise>
-    </c:choose> --%>
-    
     <%
-        if(request.getSession().getAttribute("loginName") == null) {
+        if(request.getSession().getAttribute("mName") == null) {
     %>
-            <a href="/web02/member/LoginForm.jsp">Login</a>&nbsp;
-            <a href="/web02/member/LoginForm.jsp">Join</a>&nbsp;
+            <a href="/web02/member/loginForm.jsp">Login</a>&nbsp;
+            <a href="/web02/member/joinForm.jsp">Join</a>&nbsp;
             <br>&nbsp;
     <%    } else { %>
             <a href="/web02/mdetail">Myinfo</a>
+            <a href="/web02/mdetail?code=U">MyinfoEdit</a>
             <a href="/web02/logout">Logout</a>
             <br>&nbsp;  
     <%    } %>
