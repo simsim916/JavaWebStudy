@@ -13,6 +13,9 @@
         <c:when test="${sessionScope.mName != null }">
             <h3>${sessionScope.mName}님 안녕하세요</h3>
         </c:when>
+        <c:when test="${requestScope.message != null }">
+            <h3>${requestScope.message}</h3>
+        </c:when>
         <c:otherwise>
             <h3>로그인 후 이용하세요</h3>
         </c:otherwise>
