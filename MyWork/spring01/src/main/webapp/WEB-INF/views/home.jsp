@@ -43,5 +43,9 @@
 
 	<a href="mlist">MList</a>
 	<a href="mdetail">MDetail</a>
+	<hr>
+	
+	<a href="mlistsp">MListSp</a>
+	<a href="mdetailsp">MDetaiSpl</a>
 </body>
 </html>
