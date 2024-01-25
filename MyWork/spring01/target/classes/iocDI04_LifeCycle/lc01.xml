@@ -14,3 +14,4 @@
 	<context:component-scan base-package="iocDI04_LifeCycle"/>
 	
 </beans>
+

@@ -2,11 +2,18 @@ package service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import domain.MemberDTO;
 import model.MemberDAO;
 
+//@Component
+@Service
 public class MemberService {
-	private MemberDAO dao = new MemberDAO();
+	@Autowired
+	private MemberDAO dao;
 	
 	public List<MemberDTO> selectList(){
 		return dao.selectList();

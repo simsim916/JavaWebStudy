@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.ncs.spring01" />
+	<context:component-scan base-package="com.ncs.spring01, model, service" />
 	
 	     <!-- * spring DispatcherServlet Test 1단계 **
       => xml 적용 ( 2단계 : @ 적용 )

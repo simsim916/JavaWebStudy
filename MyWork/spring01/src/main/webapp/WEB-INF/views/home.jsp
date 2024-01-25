@@ -47,5 +47,9 @@
 	
 	<a href="mlistsp">MListSp</a>
 	<a href="mdetailsp">MDetaiSpl</a>
+	<hr>
+	
+	<a href="mlistsp2">MListAnno</a>
+	<a href="mdetailsp2">MListAnno</a>
 </body>
 </html>

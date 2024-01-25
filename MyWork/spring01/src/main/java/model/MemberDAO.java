@@ -1,14 +1,29 @@
 package model;
 
 import java.sql.Connection;
+
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 import domain.MemberDTO;
 
+//** IOC/DI 적용 ( @Component 의 세분화 ) 
+//=> 스프링 프레임워크에서는 클래스들을 기능별로 분류하기위해 @ 을 추가함.
+//=>  @Controller :사용자 요청을 제어하는 Controller 클래스
+//       DispatcherServlet이 해당 객체를 Controller객체로 인식하게 해줌.    
+//=>  @Service : 비즈니스로직을 담당하는 Service 클래스
+//=>  @Repository : DB 연동을 담당하는 DAO 클래스
+//         DB 연동과정에서 발생하는 예외를 변환 해주는 기능 추가
+
+//@Component
+@Repository
 public class MemberDAO {
 
 	private static Connection cn = DBConnection.getConnection();
@@ -16,9 +31,7 @@ public class MemberDAO {
 	private static PreparedStatement pst;
 	private static ResultSet rs;
 	private static String sql;
-	
-	
-	
+
 	// ** selectList
 	public List<MemberDTO> selectList() {
 		sql = "SELECT * FROM member";
@@ -112,8 +125,7 @@ public class MemberDAO {
 
 	// ** update
 	public int update(MemberDTO dto) {
-		sql = "UPDATE member SET password=?, name=?, age=?"
-				+ ", jno=?, info=?, point=?, birthday=?, rid=? where id=?";
+		sql = "UPDATE member SET password=?, name=?, age=?" + ", jno=?, info=?, point=?, birthday=?, rid=? where id=?";
 
 		try {
 			pst = cn.prepareStatement(sql);
@@ -150,5 +162,5 @@ public class MemberDAO {
 			return 0;
 		}
 	}
-	
+
 } // class
