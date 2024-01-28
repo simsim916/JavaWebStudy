@@ -1,0 +1,138 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+main {
+    display: flex;
+}
+
+#searchTitleMJ {
+    margin: 35px auto 0 auto;
+    text-align: center;
+    font-size: 30px;
+    height: 50px;
+}
+
+#searchTitleMJ>span {
+    font-size: 20px;
+}
+
+#searchTitleMJ>b {
+    color: #9B1B30;
+}
+
+#totalMJ {
+    position: absolute;
+    left: 290px;
+}
+
+#listOptionMJ {
+    position: absolute;
+    right: 10px;
+    display: flex;
+}
+
+#listOptionMJ>div {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+#listfilter {
+    position: fixed;
+    width: 250px;
+    border: 1px solid #9B1B30;
+    border-radius: 40px;
+    height: calc(100vh - 320px - 30px);
+    top: 325px;
+}
+
+#containerMJ {
+    padding-left: 280px;
+    margin-top: 30px;
+    display: grid;
+    grid-template-rows: 30px repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(calc((800px - 280px - 10px - 30px)/4), calc((1200px - 280px - 10px - 30px)/4)));
+    gap: 10px;
+    width: calc(100vw - 30px - 10px);
+    height: calc((100vw - 280px - 30px - 10px)/4*2*4);
+    max-height: calc((1200px - 280px - 30px - 10px)*2);
+}
+
+#containerOptionMJ {
+    height: 30px;
+    grid-column: 1/-1;
+    display: flex;
+    align-items: end;
+}
+
+#totalMJ>span {
+    color: #9B1B30;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.itemBoxMJ {
+    background-color: rgb(255, 247, 247);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.itemBoxMJ>img {
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    text-align: center;
+}
+
+.itemNameMJ {
+    margin-top: 5px;
+    padding-left: 10px;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.itemInfoMJ {
+    padding-left: 10px;
+    font-size: 0.75em;
+    color: rgba(54, 54, 54, 0.699);
+}
+
+.itemPriceMJ {
+    margin: 0;
+    margin-top: 7px;
+    padding-left: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.itemOptionMJ {
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 55px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 11px;
+    background-color: #CA4046;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+
+/* 모바일 반응형 */
+
+@media (max-width : 1023px) {
+    #containerMJ {
+        grid-template-rows: 30px repeat(4, 1fr);
+        grid-template-columns: repeat(3, minmax(calc((800px - 280px - 10px - 30px)/4), calc((1200px - 280px - 10px - 30px)/4)));
+        height: calc((100vw - 280px - 30px - 10px)/3*2*4 + 150px);
+        max-height: calc((1200px - 280px - 30px - 10px)*2);
+    }
+}
