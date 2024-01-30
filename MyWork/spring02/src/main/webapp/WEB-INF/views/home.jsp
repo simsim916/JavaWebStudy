@@ -14,7 +14,7 @@
 <c:if test="${!empty sessionScope.loginName}">
 	${sessionScope.loginName}님 안녕하세요<br>
 </c:if>
-<c:if test="${empty sessionScope.loginID}">
+<c:if test="${empty sessionScope.loginId}">
 	로그인 후 이용하세요<br>
 </c:if>
 <c:if test="${!empty requestScope.message}">
@@ -22,23 +22,7 @@
 </c:if>
 <hr>
 <!-- 절대경로로 이미지넣어주기 -->
-<img alt="" src="resources/images/KarinaSapporo1.jpg" width="70" height="100">
-<img alt="" src="resources/images/KarinaSapporo2.jpg" width="45" height="100">
-<img alt="" src="resources/images/KarinaSapporo3.jpg" width="80" height="100">
-<img alt="" src="resources/images/KarinaSapporo4.jpg" width="75" height="100">
-<img alt="" src="/spring02/resources/images/karina1.gif" width="50" height="100">
-<img alt="" src="resources/images/karina2.gif" width="65" height="100">
-<img alt="" src="resources/images/KarinaBlack.jpg" width="60" height="100">
-<img alt="" src="resources/images/KarinaBlack2.jpg" width="65" height="100">
-<img alt="" src="resources/images/KarinaBlack4.jpg" width="70" height="100">
-<img alt="" src="resources/images/KarinaBlack5.jpg" width="70" height="100">
-<img alt="" src="resources/images/KarinaBlack6.jpg" width="100" height="100">
-<img alt="" src="resources/images/KarinaFlower1.jpg" width="80" height="100">
-<img alt="" src="resources/images/KarinaFlower2.jpg" width="100" height="100">
-<img alt="" src="resources/images/KarinaSpring.jpg" width="50" height="100">
-<img alt="" src="resources/images/KarinaWhite1.jpg" width="45" height="100">
-<img alt="" src="resources/images/Karina3.jpg" width="100" height="55">
-<img alt="" src="resources/images/KarinaPink.jpg" width="100" height="70">
+<img alt="" src="resources/images/ccc.gif" width="70" height="100">
 <hr>
 <!-- Login 전 -->
 <c:if test="${empty sessionScope.loginID}">
@@ -55,5 +39,8 @@
 <br><hr>
 	&nbsp;<a href="member/memberList">MList</a>
 	&nbsp;<a href="jo/joList">JList</a>
+<hr>
+	&nbsp;<a href="board/boardList">BList</a>
+	
 </body>
 </html>

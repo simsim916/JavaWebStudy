@@ -24,6 +24,7 @@ public class ItemDAO {
 		
 		try {
 			pst = cn.prepareStatement(sql);
+			pst.setString(1,name);
 			rs = pst.executeQuery(); 
 			if (rs.next()) {
 				do {

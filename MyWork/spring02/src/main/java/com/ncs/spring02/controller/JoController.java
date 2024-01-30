@@ -10,12 +10,19 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ncs.spring02.domain.JoDTO;
 import com.ncs.spring02.service.JoService;
+import com.ncs.spring02.service.MemberService;
+
+import lombok.AllArgsConstructor;
 
 @Controller
 @RequestMapping(value = "/jo")
+@AllArgsConstructor 
+// -> 모든 맴버변수를 초기화하는 생성자 자동 추가 & 사용 (Autowired 생략가능)
 public class JoController {
-	@Autowired(required = false)
+//	@Autowired(required = false)
 	JoService service;
+//	@Autowired
+	MemberService service2;
 
 	// joList
 	@RequestMapping(value = "/joList", method = RequestMethod.GET)
@@ -33,6 +40,7 @@ public class JoController {
 		}
 
 		model.addAttribute("apple", service.selectOne(jno));
+		model.addAttribute("mList", service2.selectList(jno));
 		return uri;
 	} // joDetail
 
