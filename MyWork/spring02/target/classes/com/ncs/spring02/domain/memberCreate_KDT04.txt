@@ -111,3 +111,43 @@ select * from jo;
 		-> 실패 : index.jsp ( message : 탈퇴 실패 !!! )
  
 =========================================================
+
+** Upload File
+1) Table
+=> file 정보 (경로와 파일명) 보관 컬럼 추가 : uploadfile varchar(50) 'basicman1.jpg'
+	alter table member add uploadfile varchar(50) default 'basicman1.jpg';
+
+=> 가본값 넣어놓기
+
+
+2) Java code
+2.1) List 출력하기
+=> memberList, DTO, DAO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

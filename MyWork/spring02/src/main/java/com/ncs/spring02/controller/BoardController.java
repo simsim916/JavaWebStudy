@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ncs.spring02.domain.BoardDTO;
 import com.ncs.spring02.service.BoardService;
@@ -25,18 +27,31 @@ public class BoardController {
 	}
 
 	// Detail
+	// => 글요청 처리중, 글을 읽기 전 상태
+	// -> 조회수 증가 
+	//  loginID와 board 의 id가 다른 경우
 	@GetMapping("/detail")
 	public String boardDetail(Model model, HttpSession session, @RequestParam("seq") int seq) {
 		String uri = "board/boardList";
-
+		
 		if (session.getAttribute("loginId") == null) {
 			model.addAttribute("message", "로그인 후 조회가능합니다.");
 			model.addAttribute("list", service.selectList());
 		} else {
 			uri = "board/boardDetail";
+			
+			// => 조회수 증가 : selectOne 의 결과를 보관
+			BoardDTO dto = service.selectOne(seq);
+			if (!dto.getId().equals((String)session.getAttribute("loginId"))) {
+				dto.setCnt(dto.getCnt()+1);
+				service.update(dto);
+			}
+			
 			model.addAttribute("board", service.selectOne(seq));
 		}
-
+		
+		
+		
 		return uri;
 	}
 
@@ -107,4 +122,12 @@ public class BoardController {
 		}
 		return uri;
 	}
+	
+	// Reply Insert
+	@GetMapping("/replyInsert")
+	public void replyInsert(BoardDTO dto) {
+		// => 답글처리를 위해 부모글의 root, step, indent 를 인자로 전달받으면,
+		//		이 인자에 담겨진 값은 requestScope과 동일
+	}
+	
 }

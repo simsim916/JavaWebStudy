@@ -23,6 +23,7 @@
 		<label>
 			내용 : <input type="text" name="content" value="${requestScope.board.content}">
 		</label>
+		<input type="hidden" name="cnt" value="${requestScope.board.content.cnt }">
 		<input type="submit" value="제출">
 		<input type="reset" value="리셋">
 	</form>

@@ -18,6 +18,7 @@
 <h3>제목 : ${b.title}</h3>
 <p>내용 : ${b.content}</p>
 
+	<a href="replyInsert?root=${b.root}&step=${b.step}&indent=${b.indent} }">답글등록</a>
 <c:if test="${b.id == sessionScope.loginId}">
 	<a href="boardUpdate?seq=${b.seq}">Update</a>
 	<a href="delete?seq=${b.seq}">Delete</a>

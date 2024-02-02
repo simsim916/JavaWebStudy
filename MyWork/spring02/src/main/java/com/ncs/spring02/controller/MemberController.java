@@ -1,20 +1,33 @@
 package com.ncs.spring02.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ncs.spring02.domain.MemberDTO;
 import com.ncs.spring02.service.MemberService;
+
+import lombok.AllArgsConstructor;
 
 //** Spring 의 redirect ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -114,13 +127,16 @@ import com.ncs.spring02.service.MemberService;
 
 // -> Logger 사용과의 차이점 : "{}" 지원안됨 , 호출명 log
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+@AllArgsConstructor
 @Controller
 @RequestMapping(value = "member")
 public class MemberController {
 	@Autowired(required = false)
 	MemberService service;
-
+	
+	PasswordEncoder passwordEncoder;
+	// -> root~~~.xml 에 bean 등록
+	
 	// Member Login
 //	@RequestMapping(value = {"/loginForm"}, method = RequestMethod.GET)
 //	public String loginForm( Model model ) {
@@ -144,7 +160,7 @@ public class MemberController {
 		String uri = "redirect:/home";
 
 		dto = service.selectOne(dto.getId());
-		if (dto != null && dto.getPassword().equals(password)) {
+		if (dto != null && passwordEncoder.matches(password,dto.getPassword())) {
 			session.setAttribute("loginId", dto.getId());
 			session.setAttribute("loginName", dto.getName());
 		} else {
@@ -170,9 +186,76 @@ public class MemberController {
 
 	// Member Join
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	private String join(Model model, MemberDTO dto) {
+	private String join(HttpServletRequest request, Model model, MemberDTO dto)
+	throws IOException{
 		String uri = "member/loginForm";
+		
+	      // *** Upload File 처리 **************************
+	      // => 주요과제
+	      //   -> 전달된 화일 저장 : file1 (서버의 물리적 실제저장위치 필요함)
+	      //   -> 전달된 화일명 Table에 저장 : file2
+	      //    -> MultipartFile : 위의 과정을 지원해주는 전용객체
+	      
+	      // 1) 물리적 실제저장위치 확인
+	      // 1.1) 현재 웹어플리케이션의 실행위치 확인
+	      //   => 이클립스 개발환경 (배포전) : ~~.eclipse.~~ 포함
+	      //   => 톰캣 서버 배포후 :  ~~.eclipse.~~ 포함되어있지 않음
 
+		
+		String realPath = request.getRealPath("/");
+		System.out.println("** realPath : " + realPath);
+		
+		// 1.2) realPath 를 이용해서 물리적저장위치 (file1)확인 
+		if ( realPath.contains(".eclipse."))// 개발중
+			realPath="Z:\\JavaWebStudy\\MyWork\\spring02\\src\\main\\webapp\\resources\\uploadImages\\";
+			else realPath ="resources\\uploadImages\\";
+			
+	    // 1.3) 폴더 만들기 (없을수도 있음을 가정, File)
+	    // => file.exists()
+	    //   -> 파일 또는 폴더가 존재하는지 리턴
+	    //   -> 폴더가 아닌, 파일존재 확인하려면 file.isDirectory() 도 함께 체크해야함. 
+	    //     ( 참고: https://codechacha.com/ko/java-check-if-file-exists/ )
+	    // => file.isDirectory() : 폴더이면 true 그러므로 false 이면 file 이 존재 한다는 의미가 됨. 
+	    // => file.isFile()
+	    //   -> 파일이 존재하는 경우 true 리턴,
+	    //      file의 Path 가 폴더인 경우는 false 리턴
+		File file = new File(realPath);
+		
+		if (!file.exists()) {
+			// => 저장폴더가 존재하지 않는경우 만들어줌
+			file.mkdir();
+		}
+	      // --------------------------------------------
+	      // ** File Copy 하기 (IO Stream)
+	      // => 기본이미지(basicman4.png) 가 uploadImages 폴더에 없는경우 기본폴더(images) 에서 가져오기
+	      // => IO 발생: Checked Exception 처리
+	      file = new File(realPath+"basicman1.jpg"); // uploadImages 폴더에 화일존재 확인을 위함
+	      if ( !file.isFile() ) { // 존재하지않는 경우
+	         String basicImagePath 
+	               = "Z:\\JavaWebStudy\\MyWork\\spring02\\src\\main\\webapp\\resources\\Images\\basicman1.jpg";
+	         FileInputStream fi = new FileInputStream(new File(basicImagePath));
+	         // => basicImage 읽어 파일 입력바이트스트림 생성
+	         FileOutputStream fo = new FileOutputStream(file); 
+	         // => 목적지 파일(realPath+"basicman1.png") 출력바이트스트림 생성  
+	         FileCopyUtils.copy(fi, fo);
+	      }
+	      // --------------------------------------------
+	      // ** MultipartFile
+	      // => 업로드한 파일에 대한 모든 정보를 가지고 있으며 이의 처리를 위한 메서드를 제공한다.
+	      //    -> String getOriginalFilename(), 
+	      //    -> void transferTo(File destFile),
+	      //    -> boolean isEmpty()
+	      
+	      // 1.4) 저장경로 완성
+	      String file1="", file2="basicman1.jpg";
+	      MultipartFile uploadfilef = dto.getUploadfilef();
+	      if (uploadfilef!=null && !uploadfilef.isEmpty()) {
+	    	  file1=realPath+uploadfilef.getOriginalFilename(); // 저장경로 완성
+	    	  uploadfilef.transferTo(new File(file1));
+	      }
+	      
+		dto.setUploadfile(file2);
+		dto.setPassword(passwordEncoder.encode(dto.getPassword()));
 		if (service.insert(dto) > 0) {
 			model.addAttribute("message", "회원가입완료! 로그인 해주세요");
 		} else {
@@ -208,7 +291,7 @@ public class MemberController {
 	
 	// Member Update
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
-	private String update(HttpSession session, Model model, MemberDTO dto) {
+	public String update(HttpSession session, Model model, MemberDTO dto) {
 		String uri = "member/detail";
 
 		if (service.update(dto) > 0) {
@@ -225,7 +308,7 @@ public class MemberController {
 	}
 	// Member Delete
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	private String delete(HttpSession session, Model model, RedirectAttributes rttr) {
+	public String delete(HttpSession session, Model model, RedirectAttributes rttr) {
 		
 		String uri = "redirect:/home";
 		if (service.delete((String)session.getAttribute("loginId")) > 0) {
@@ -243,5 +326,47 @@ public class MemberController {
 		
 		return uri;
 	}
+	
+	// ** id 중복활인
+	@GetMapping("/idDupCheck")
+	public void idDupCheck(@RequestParam("id") String id, Model model) {
+		// 1) newID 존재여부 확인 & 결과처리
+		if (service.selectOne(id)!= null) {
+			model.addAttribute("idUse", "F");
+		} else {
+			model.addAttribute("idUse", "T");
+		}
+	}
+	
+	//** Password 수정 (PasswordEncoder 추가 후)
+		@GetMapping("/pwUpdate")
+		public void pwUpdate() {
+			// View_name 생략	
+		}
+		//** PasswordUpdate
+		//=> Service, DAO에 pwUpdate(dto)메서드 추가
+		//=> 성공: session 무효화, 로그인 창으로
+		//	 실패: pwUpdate, 재수정 유도
+		@PostMapping("/pwUpdate")
+		public String pwUpdate(HttpSession session, MemberDTO dto, Model model) {
+			//1) 요청분석
+			//=> id: session에서
+			dto.setId((String)session.getAttribute("loginId"));
+			dto.setPassword(passwordEncoder.encode(dto.getPassword()));
+			
+			String uri="member/loginForm"; //성공시
+			//2) Service
+			if(service.pwUpdate(dto)>0) {
+				//성공
+				session.invalidate();
+				model.addAttribute("message","비밀번호 수정 완료! 재로그인하세요");
+			}else {
+				//실패
+				model.addAttribute("message","비밀번호 수정 실패!!!");
+				uri="member/pwUpdate";
+			}
+			
+			return uri;
+		}
 
 }

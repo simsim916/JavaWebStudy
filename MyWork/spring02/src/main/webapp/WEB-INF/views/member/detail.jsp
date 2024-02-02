@@ -10,7 +10,9 @@
 <body>
 <c:set var="d" value="${requestScope.mDetail}"/>
 <b>ID : </b> ${d.id} <br>
-<b>Password : </b> ${requestScope.mDetail.password}
+<b>Password : </b> ${requestScope.mDetail.password} <br>
 <b>NAME : </b> ${d.name} <br>
+<img alt="${d.id}" src="/spring02/resources/uploadImages/${m.uploadfile}">
+<br>
 </body>
 </html>

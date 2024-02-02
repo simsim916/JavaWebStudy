@@ -16,9 +16,11 @@
 	<tr height="40"><td bgcolor="MediumPurple"><label for="id">아이디</label></td>
 		<td><input type="text" id="id" name="id" value="${d.id}" readonly></td>
 	</tr>
+	
+	<%-- PasswordEncoder 적용후 분리함 
 	<tr height="40"><td bgcolor="MediumPurple"><label for="password">비밀번호</label></td>
 		<td><input type="text" id="password" name="password" value="${d.password}"></td>
-	</tr>
+	</tr> --%>
 	<tr height="40"><td bgcolor="MediumPurple"><label for="name">이름</label></td>
 		<td><input type="text" id="name" name="name" value="${d.name}" ></td>
 	</tr>
@@ -52,6 +54,7 @@
 		</td>
 	</tr>
 </table>
+&nbsp;<a href="pwUpdate">비밀번호 수정</a>&nbsp;
 <c:if test="${!empty requestScope.message}">
 	회원가입 실패~
 </c:if>

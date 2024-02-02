@@ -100,13 +100,14 @@ public class BoardDAO {
 
 	// Update
 	public int update(BoardDTO dto) {
-		sql = "Update board set title = ? , content =? where seq = ?";
+		sql = "Update board set title = ? , content =?, cnt=? where seq = ?";
 
 		try {
 			pst = cn.prepareStatement(sql);
 			pst.setString(1, dto.getTitle());
 			pst.setString(2, dto.getContent());
-			pst.setInt(3, dto.getSeq());
+			pst.setInt(3, dto.getCnt());
+			pst.setInt(4, dto.getSeq());
 			
 			return pst.executeUpdate();
 			
@@ -130,4 +131,13 @@ public class BoardDAO {
 			return 0;
 		}
 	}
+	 // ** replyInsert : 답글입력
+	   // => seq: IFNULL 이용
+	   // => 입력 컬럼: id, title, content, root, step, indent
+	   // => JDBC subQuery 구문 적용시 주의사항
+	   //     -> MySql: select 구문으로 한번더 씌워 주어야함 (insert 의 경우에도 동일)   
+	   // => stepUpdate 가 필요함
+	   //    댓글 입력 성공후 실행
+	   //     -> 현재 입력된 답글의 step 값은 수정되지 않도록 sql 구문의 조건 주의
+	
 }

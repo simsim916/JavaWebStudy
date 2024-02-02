@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="" href="/spring02/resources/myLib/myStyle.css">
 	<title>|| Login ||</title>
+<script defer type="text/javascript" src="/spring02/resources/myLib/inCheck.js"></script>
 </head>
 <body>
 <h2>** Login Test **</h2>
