@@ -6,41 +6,74 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ncs.spring02.domain.BoardDTO;
-import com.ncs.spring02.model.BoardDAO;
+
+import mapperInterface.BoardMapper;
+import pageTest.SearchCriteria;
 
 @Service
 public class BoardServiceImpl implements BoardService {
 	@Autowired
-	BoardDAO dao;
+//	BoardDAO dao;
+	BoardMapper mapper;
+
+	@Override
+	public List<BoardDTO> bCheckList(SearchCriteria cri) {
+		return mapper.bCheckList(cri);
+	}
+
+	@Override
+	public int bCheckRowsCount(SearchCriteria cri) {
+		return mapper.bCheckRowsCount(cri);
+	}
+
+	// bPageList
+	public List<BoardDTO> bPageList(SearchCriteria cri) {
+		// ver01
+//		return mapper.bPageList(cri);
+		// ver02
+		return mapper.bSearchList(cri);
+	}
+
+	// totalRowsCount
+	public int totalRowsCount(SearchCriteria cri) {
+		// ver01
+//		return mapper.totalRowsCount(cri);
+		// ver02
+		return mapper.bSearchRowsCount(cri);
+	}
 
 	@Override
 	public List<BoardDTO> selectList() {
-		// TODO Auto-generated method stub
-		return dao.selectList();
+		return mapper.selectList();
 	}
 
 	@Override
 	public BoardDTO selectOne(int seq) {
-		// TODO Auto-generated method stub
-		return dao.selectOne(seq);
+		return mapper.selectOne(seq);
 	}
 
 	@Override
 	public int insert(BoardDTO dto) {
-		// TODO Auto-generated method stub
-		return dao.insert(dto);
+		return mapper.insert(dto);
+	}
+
+	@Override
+	public int rinsert(BoardDTO dto) {
+		if (mapper.rinsert(dto) > 0) {
+			// stepUpdate
+			System.out.println(" stepUpdate Count => " + mapper.stepUpdate(dto));
+			return 1;
+		} else
+			return 0;
 	}
 
 	@Override
 	public int update(BoardDTO dto) {
-		// TODO Auto-generated method stub
-		return dao.update(dto);
+		return mapper.update(dto);
 	}
 
 	@Override
-	public int delete(int seq) {
-		// TODO Auto-generated method stub
-		return dao.delete(seq);
+	public int delete(BoardDTO dto) {
+		return mapper.delete(dto);
 	}
-
-}
+} // class

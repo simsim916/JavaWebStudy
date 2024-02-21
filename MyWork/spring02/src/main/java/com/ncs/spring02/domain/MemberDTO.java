@@ -6,11 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//** DTO
-//=> private 맴버변수
-//=> getter/setter
-//=> toString
-
 //** Lombok
 //setter, getter, toString, 생성자 등을 자동으로 만들어줌
 
@@ -24,14 +19,18 @@ import lombok.NoArgsConstructor;
 //=> @Setter(모든 필드-final로 선언되지 않은) : setter를 생성하도록 지원
 //=> @ToString :  모든 필드를 출력하는 toString() 메소드 생성 
 
-
+// 클래스의 모든 필드 값을 파라미터로 받는 생성자를 자동으로 생성
+// 클래스의 모든 필드를 한 번에 초기화
+@AllArgsConstructor
+// 파라미터가 없는 디폴트 생성자를 자동으로 생성
+// 클래스에 명시적으로 선언된 생성자가 없더라도 인스턴스를 생성
+@NoArgsConstructor
 //=> 정의된 모든 필드에 대한 
 //Getter, Setter, ToString 과 같은 모든 요소를 한번에 만들어주는 애너테이션.
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 public class MemberDTO {
-	private String id; // Primary_Key
+	// 1 private 멤버변수
+	private String id; // Primary_key
 	private String password; // not null
 	private String name;
 	private int age;
@@ -40,12 +39,11 @@ public class MemberDTO {
 	private double point;
 	private String birthday;
 	private String rid; // 추천인
-	private String uploadfile; // table 보관용 (file_name)
-	
+	private String uploadfile; // Table 보관용(파일명)
+
+	// form의 Upload_File의 정보를 전달받기위한 컬럼
+	// MultipartFile(i) -> commonsMultipartFile
+	// pom.xml dependency 추가
+	// 구현체 commonsMultipartFile를 생성(servlet--.xml)
 	private MultipartFile uploadfilef;
-	// => form 의 Upload_File의 정보를 전달받기 위한용도
-	// MultipartFile(인터페이스) -> CommonsMultipartFile
-	// -> pom.xml dependency 추가
-	// -> 구현체 생성 (servlet~.xml)
-	
 }

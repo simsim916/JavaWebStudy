@@ -4,10 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 public class BoardDTO {
+
 	private int seq;
 	private String id;
 	private String title;
@@ -17,4 +18,4 @@ public class BoardDTO {
 	private int root;
 	private int step;
 	private int indent;
-}
+} // class

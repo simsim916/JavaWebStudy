@@ -4,20 +4,38 @@ import java.util.List;
 
 import com.ncs.spring02.domain.BoardDTO;
 
+import pageTest.SearchCriteria;
+
 public interface BoardService {
 
-	// List
-	public List<BoardDTO> selectList() ;
+	// bCheckList
+	public List<BoardDTO> bCheckList(SearchCriteria cri);
+	
+	// bCheckRowsCount
+	public int bCheckRowsCount(SearchCriteria cri);
+	
+	// bPageList
+	public List<BoardDTO> bPageList(SearchCriteria cri);
 
-	// Detail
-	public BoardDTO selectOne(int seq) ;
+	// totalRowsCount
+	public int totalRowsCount(SearchCriteria cri);
 
-	// Insert
-	public int insert(BoardDTO dto) ;
+	// selectList
+	public List<BoardDTO> selectList();
 
-	// Update
-	public int update(BoardDTO dto) ;
+	// selectOne
+	public BoardDTO selectOne(int seq);
 
-	// Delete
-	public int delete(int seq) ;
-}
+	// insert
+	public int insert(BoardDTO dto);
+
+	// replyInsert
+	public int rinsert(BoardDTO dto);
+
+	// update
+	public int update(BoardDTO dto);
+
+	// delete
+	public int delete(BoardDTO dto);
+
+} // class

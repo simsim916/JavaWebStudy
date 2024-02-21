@@ -21,6 +21,23 @@
 		<td>${a.project}</td><td>${a.slogan}</td>
 	</tr>
 </table>
+<table border="1" style="width:100%">
+	<tr bgcolor="Aquamarine">
+		<th>ID</th><th>PASSWORD</th><th>NAME</th><th>AGE</th><th>JNO</th>
+		<th>Info</th><th>Point</th><th>BRITHDAY</th><th>추천인</th><th>Image</th>
+	</tr>
+<c:if test="${!empty requestScope.banana }">
+	<c:forEach var="b" items="${requestScope.banana}">
+		<tr>
+			<td>${b.id}</td><td>${b.password}</td><td>${b.name}</td>
+			<td>${b.age}</td><td>${b.jno}</td><td>${b.info}</td>
+			<td>${b.point}</td><td>${b.birthday}</td><td>${b.rid}</td>
+			<td><img alt="myImage" width="150" height="170"
+				src="/spring02/resources/uploadImages/${b.uploadfile}"></td>
+		</tr>
+	</c:forEach>
+</c:if>	
+</table>
 
 <c:if test="${!empty requestScope.message}">
 => ${requestScope.message}
@@ -30,20 +47,6 @@
 &nbsp;<a href="joDetail?jCode=U&jno=${a.jno}">수정</a>&nbsp;
 &nbsp;<a href="joDelete?jno=${a.jno}">삭제</a>&nbsp;
 <br>
-
-<table><thead><tr>
-			<th>학생번호</th><th>이름</th><th>나이</th><th>조번호</th><th>정보</th><th>포인트</th>
-			</tr></thead><tbody></tbody>
-	<c:if test="${!empty requestScope.mList}">
-	<c:set value="${requestScope.mList}" var="n" />
-		<c:forEach var="m" items="${n}">
-			<tr>
-				<td>${m.id}<td><td>${m.password}<td><td>${m.name}<td><td>${m.age}<td>
-				<td>${m.jno}<td><td>${m.info}<td><td>${m.point}<td><td>${m.birthday}<td><td>${m.rid}<td>
-			</tr>
-		</c:forEach>
-	</c:if>
-
 &nbsp;<a href="/spring02/home">Home</a>&nbsp;
 &nbsp;<a href='javascript:history.go(-1)'>이전으로</a>&nbsp;
 

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> JoInsert </title>
+<title> Board Insert </title>
 	<link rel="stylesheet" type="text/css" 
 	href="/spring02/resources/myLib/myStyle.css">
 </head>

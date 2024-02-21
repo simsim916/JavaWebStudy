@@ -7,27 +7,8 @@
 <title>JoinForm</title>
 <link rel="stylesheet" type="text/css" href="/spring02/resources/myLib/myStyle.css">
 <Script src="/spring02/resources/myLib/inCheck.js"></Script>
-<!--  ** FileUpLoad Form **
-=> form 과 table Tag 사용시 주의사항 : form 내부에 table 사용해야함
-   -> form 단위작업시 인식안됨
-   -> JQ 의 serialize, FormData 의 append all 등 
-
-=> method="Post" : 255 byte 이상 대용량 전송 가능 하므로
-
-=> <form enctype="속성값">
-   <form> 태그의 데이터 (input 의 value)가 서버로 제출될때 해당 데이터가 인코딩되는 방법을 명시함.  
- 
-=> enctype="multipart/form-data" : 화일 upload 를 가능하게 해줌 
-   ** multipart/form-data는 파일업로드가 있는 입력양식요소에 사용되는 enctype 속성의 값중 하나이고, 
-       multipart는 폼데이터가 여러 부분으로 나뉘어 서버로 전송되는 것을 의미
-       이 폼이 제출될 때 이 형식을 서버에 알려주며, 
-       multipart/form-data로 지정이 되어 있어야 서버에서 정상적으로 데이터를 처리할 수 있다.     
--->
-
-
 <script>
 "use strict"
-
 // ** ID 중복확인
 // => UI 개선사항
 // => 중복확인 버튼 추가
@@ -37,20 +18,17 @@
 // => 중복확인 기능 : function idDupCheck()
 //    id입력값의 무결성점검 -> id 확인요청 -> 서버로 전송 -> id , selectOne 결과 -> response: 사용가능/불가능 
 // => 서버측 : 컨트롤러에 idDupCheck 요청을 처리하는 매핑메서드, view_Page(팝업창) 작성   
+function idDupCheck() {
+   // 1) id입력값의 무결성점검
+   if ( !iCheck ) { iCheck=idCheck();
+   }else {
+   // 2) 서버로 id 확인요청 -> 결과는 view_Page(팝업창) 으로
+      let url="idDupCheck?id="+document.getElementById('id').value;
+      window.open(url,'_blank','width=400,height=300,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes');
+   }
+} //idDupCheck
 
-function idDupCheck(){
-	
-	// 1) id입력값의 무결성점검
-	if(!iCheck){
-		iCheck=idCheck();
-	}else {
-	// 2) 서버로 id 확인요청 -> 결과는 팝업창
-		let url="idDupCheck?id="+document.getElementById('id').value;
-		window.open(url,'_blank','width=400,height=300,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes')
-	}
-}
-
-/* --------------------------------------------------*/
+//----------------------------------------------------------------------------------------
 // ** 화살표 함수
 // => 익명함수를 간단하게 표기
 //    function(){....}  
@@ -229,13 +207,30 @@ function inCheck(){
 </script>
 </head>
 <body>
+<!--  ** FileUpLoad Form **
+=> form 과 table Tag 사용시 주의사항 : form 내부에 table 사용해야함
+   -> form 단위작업시 인식안됨
+   -> JQ 의 serialize, FormData 의 append all 등 
+
+=> method="Post" : 255 byte 이상 대용량 전송 가능 하므로
+
+=> <form enctype="속성값">
+   <form> 태그의 데이터 (input 의 value)가 서버로 제출될때 해당 데이터가 인코딩되는 방법을 명시함.  
+ 
+=> enctype="multipart/form-data" : 화일 upload 를 가능하게 해줌 
+   ** multipart/form-data는 파일업로드가 있는 입력양식요소에 사용되는 enctype 속성의 값중 하나이고, 
+       multipart는 폼데이터가 여러 부분으로 나뉘어 서버로 전송되는 것을 의미
+       이 폼이 제출될 때 이 형식을 서버에 알려주며, 
+       multipart/form-data로 지정이 되어 있어야 서버에서 정상적으로 데이터를 처리할 수 있다.     
+-->
+
 	<form action="join" method="post" enctype="multipart/form-data">
 		<table>
 			<tr height="40">
 				<td bgcolor="MediumPurple"><label for="id"> I D </label></td>
-				<td><input type="text" name="id" id="id" placeholder="영문과 숫자로 4-10글자" size="20"> <br> <span id="iMessage" class="eMessage"></span></td>
-				<button type="button" id="idDup" onclick="idDupCheck()"  >ID중복 확인</button>
-				
+				<td><input type="text" name="id" id="id" placeholder="영문과 숫자로 4-10글자" size="20">
+					<button type="button" id="idDup" onclick="idDupCheck()">ID중복확인</button>
+					<br> <span id="iMessage" class="eMessage"></span></td>
 			</tr>
 			<tr height="40">
 				<td bgcolor="MediumPurple"><label for="password"> PASSWORD </label></td>
@@ -279,10 +274,29 @@ function inCheck(){
 				<td bgcolor="MediumPurple"><label for="rid"> 추천인 </label></td>
 				<td><input type="text" name="rid" id="rid" size="20"></td>
 			</tr>
+		<!-- File Upload 기능추가 -->
 			<tr height="40">
-			<!-- file upload 기능추가 -->
-				<td bgcolor="MediumPurple"><label for="uploadfileF"> image </label></td>
-				<td><input type="file" name="uploadfileF" id="uploadfilef" size="20"></td>
+				<td bgcolor="MediumPurple"><label for="uploadfilef"> Image </label></td>
+				<td>
+					<img alt="MyImage" src="" class="select_img" width="80" height="100"><br>
+					<input type="file" name="uploadfilef" id="uploadfilef" size="20">
+				</td>
+				<script>
+			        document.getElementById('uploadfilef').onchange=function(e){
+			         if(this.files && this.files[0]) {
+			            let reader = new FileReader;
+			            reader.readAsDataURL(this.files[0]);
+			             reader.onload = function(e) {
+			                // => jQuery를 사용하지 않는경우
+			                // class는 같은 이름이 여러개 존재가능, index를 올바르게 설정해야함
+			                document.getElementsByClassName('select_img')[0].src=e.target.result;
+			               // $로 jQuery를 사용하고, 리턴도 jQuery로 하기때문에 . 선택자로 계속해서 사용가능
+			               //$(".select_img").attr("src", e.target.result)
+			               //            .width(70).height(90); 
+			               } // onload_function
+			          } // if   
+			        }; //change  
+      			</script>
 			</tr>
 			<tr>
 				<td></td>
@@ -292,7 +306,8 @@ function inCheck(){
     - submit 진행 : default (또는 return true)
     - submit 정지 : submit 이벤트를 무효화 해야함 (return false 또는 이벤트.preventDefault())  -->
 <!-- incheck가 true를 return하면 submit 실행 -->
-         <input type="submit" id="submitTag" value="가입" onclick="return inCheck()" disabled>&nbsp;&nbsp;
+         <input type="submit" id="submitTag" value="가입"
+         onclick="return inCheck()" disabled>&nbsp;&nbsp;
 <!-- Button Test
 => default : form 내부에서는  submit 와  동일하게 작동됨 
             inCheck() 의 return 값에 따라 (true 면) submit 진행됨 
@@ -305,10 +320,9 @@ function inCheck(){
 			</tr>
 		</table>
 	</form>
-	<hr>
 	<!-- <button onclick="inCheck()">ButtonTest</button> -->
-
-	<c:if test="${!empty requestScope.message}">
+<c:if test="${!empty requestScope.message}">
+<hr>
 => ${requestScope.message}	
 </c:if>
 

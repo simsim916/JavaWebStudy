@@ -1,16 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title> Spring MVC2 Reply Insert </title>
 </head>
 <body>
+<h2> Spring MVC2 Reply Insert </h2>
 <form action="replyInsert" method="post">
 <table>
    <tr height="40"><th bgcolor="lime">I D</th>
-      <td><input type="text" name="id" value="${sessionScope.loginId}" readonly size="20"></td></tr>
+      <td><input type="text" name="id" value="${sessionScope.loginID}" readonly size="20"></td></tr>
    <tr height="40"><th bgcolor="lime">Title</th>
       <td><input type="text" name="title" size="50"></td></tr>   
    <tr height="40"><th bgcolor="lime">Content</th>
@@ -33,7 +35,7 @@
 </table>
 </form>
 <hr>
-<c:if test="${!empty requestScope.message}">
+<c:if test="${not empty requestScope.message}">
 => ${requestScope.message}
 </c:if>
 <hr>

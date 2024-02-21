@@ -15,15 +15,17 @@
 <table border="1" style="width:100%">
 	<tr bgcolor="Aquamarine">
 		<th>JNO</th><th>JNAME</th><th>CAPTAIN</th>
-		<th>PROJECT</th><th>SLOGAN</th>
+		<th>조장명</th><th>PROJECT</th><th>SLOGAN</th><th>Image</th>
 	</tr>
 	
 <c:if test="${!empty requestScope.banana }">
 	<c:forEach var="b" items="${requestScope.banana}">
 		<tr>
 			<td><a href="joDetail?jCode=D&jno=${b.jno}">${b.jno}</a></td>
-			<td>${b.jname}</td><td>${b.captain}</td>
+			<td>${b.jname}</td><td>${b.captain}</td><td>${b.cname}</td>
 			<td>${b.project}</td><td>${b.slogan}</td>
+			<td><img alt="myImage" width="150" height="170"
+				src="/spring02/resources/uploadImages/${b.uploadfile}"></td>
 		</tr>
 	</c:forEach>
 </c:if>

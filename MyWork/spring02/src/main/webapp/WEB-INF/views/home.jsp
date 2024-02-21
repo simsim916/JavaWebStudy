@@ -14,15 +14,12 @@
 <c:if test="${!empty sessionScope.loginName}">
 	${sessionScope.loginName}님 안녕하세요<br>
 </c:if>
-<c:if test="${empty sessionScope.loginId}">
+<c:if test="${empty sessionScope.loginID}">
 	로그인 후 이용하세요<br>
 </c:if>
 <c:if test="${!empty requestScope.message}">
 	<hr><h4>${requestScope.message}</h4>
 </c:if>
-<hr>
-<!-- 절대경로로 이미지넣어주기 -->
-<img alt="" src="resources/images/ccc.gif" width="70" height="100">
 <hr>
 <!-- Login 전 -->
 <c:if test="${empty sessionScope.loginID}">
@@ -39,9 +36,22 @@
 <br><hr>
 	&nbsp;<a href="member/memberList">MList</a>
 	&nbsp;<a href="jo/joList">JList</a>
-<hr>
 	&nbsp;<a href="board/boardList">BList</a>
-	&nbsp;<a href="bcrypt">BCrypt</a>
+	&nbsp;<a href="bcrypt">BCrypt</a><br>
+	&nbsp;<a href="board/bPageList">BPage</a><br>
+	&nbsp;<a href="etest">Exception</a>
+	&nbsp;<a href="member/log4jTest">log4jTest</a><br>
 	
+<!-- 절대경로로 이미지넣어주기 -->
+<img alt="" src="resources/images/Arcana1.png" width="250" height="250">
+<img alt="" src="resources/images/Arcana2.gif" width="250" height="250">
+<img alt="" src="resources/images/Arcana1.png" width="250" height="250">
+<img alt="" src="resources/images/Arcana3.gif" width="250" height="250"><br>
+<hr>
+&nbsp;<a href="greensn">GreenSN</a>&nbsp;
+&nbsp;<a href="greenall">GreenALL</a>&nbsp;
+&nbsp;<a href="jeju">JeJu</a>&nbsp;
+&nbsp;<a href="gps">GPS</a>&nbsp;
+
 </body>
 </html>

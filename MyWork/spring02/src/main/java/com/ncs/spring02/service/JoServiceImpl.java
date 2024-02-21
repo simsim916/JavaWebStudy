@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ncs.spring02.domain.JoDTO;
-import com.ncs.spring02.model.JoDAO;
+
+import mapperInterface.JoMapper;
 
 //** Service
 //=> 요청클래스 와 DAO클래스 사이의 연결(완충지대) 역할
@@ -19,37 +20,40 @@ import com.ncs.spring02.model.JoDAO;
 
 @Service
 public class JoServiceImpl implements JoService {
+	/*
+	 * @Autowired JoDAO dao;
+	 */
 	@Autowired
-	JoDAO dao;
+	JoMapper mapper;
 
 	// joList
 	@Override
 	public List<JoDTO> selectList() {
-		return dao.selectList();
+		return mapper.selectList();
 	}
 
 	// joDetail
 	@Override
 	public JoDTO selectOne(String jno) {
-		return dao.selectOne(jno);
+		return mapper.selectOne(jno);
 	}
 
 	// joInsert
 	@Override
 	public int insert(JoDTO dto) {
-		return dao.insert(dto);
+		return mapper.insert(dto);
 	}
 
 	// joUpdate
 	@Override
 	public int update(JoDTO dto) {
-		return dao.update(dto);
+		return mapper.update(dto);
 	}
 
 	// joDelete
 	@Override
 	public int delete(String jno) {
-		return dao.delete(jno);
+		return mapper.delete(jno);
 	}
 
 } // class

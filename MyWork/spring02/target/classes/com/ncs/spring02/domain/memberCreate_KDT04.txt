@@ -13,19 +13,21 @@
 
 -----------------------------------------------------------------------------------
 ** Student & Jo 
-create table student(
-snum int(10) auto_increment primary key,
-sname varchar(10) not null,
-age int(3) not null,
+create table student (
+sno int(3) auto_increment Primary key,
+name varchar(10) not null,
+age int(3) check( age>15 and age<100 ),
+jno int(1),
 info varchar(30),
-jno int(1) references jo(jno)  
+point float(5,2) default 100
 );
 
 create table jo(
-jno int(1) Primary Key,
-captain varchar(10) not null,
-jname varchar(20) not null,
-note varchar(10)  
+jno int Primary Key,
+jname varchar(10) not null,
+captain int(10) not null,
+project varchar(20), 
+slogan varchar(30)  
 );
 
 -----------------------------------------------------------------------------------
@@ -47,107 +49,121 @@ birthday varchar(10),
 rid varchar(10)
 ) ; 
 
-create table jo(
-jno int(1) Primary Key,
-jname varchar(20),
-captain varchar(10),
-project varchar(20) not null,
-slogan varchar(30)  
-);
-
 => Insert
 -> column 갯수와 Type 이 다르면 column 명 지정해야함  
 insert into member(id, password, name, age, jno, info, point)
 select sno, sno, name, age, jno, info, point from student ;  
 
 select * from member;
-update member set password='12345!' , birthday='1999-09-09' ;
+
+=> id update
+update member set id='doongdoong' where id='5';
 
 select * from member;
 
-=> 각자 id 와 rid 수정문 올려주세요~
-update member set id='banana', rid='green' where id='17' ;
+=> password update
+update member set password='12345!';
+
+=> birthday update
+update member set birthday='1994-02-23' where id='5';
+
+=> rid update
+update member set rid='dbrghl23' where id='5';
+
+=> 전체 업데이트
+update member set id='banana', rid='apple', birthday='1999-09-09' where id='17';
+update member set id='green', rid='apple', birthday='1999-09-09' where id='18';
+update member set birthday='1992-10-11', id='simsim916' ,rid='juh94' where name='최문석';
+update member set birthday='1994-12-17', id='bong', rid='sumiii' where name='봉민지';
+update member set birthday='1994-10-13', id='juh94' ,rid='simsim916' where name='주용현';
+update member set birthday='1995-07-22', id='sumiii', rid='juh94' where name='김수미';
+update member set birthday='1998-09-19', id='agr4005',rid='LeeMocha' where name='김수빈';
+update member set id='LeeMocha',birthday='1990-12-17', rid='agr4005' where name='이정혁';
+update member set id='jyw97',rid='LeeMocha',birthday='1997-01-10' where name='전예원';
+update member set id='kso', rid='img4029', birthday='1995-08-08' where id='3';
+update member set id='lsw', rid='kso' , birthday='1994-06-17' where id='11' ;
+update member set id='KCM', rid='img4029',birthday='1988-12-19' where name='김창민';
+update member set id='img4029', rid='kso' , birthday='1993-04-18' where id='10';
+update member set id='bamboo7', rid='merci', birthday='1994-10-22' where name='최승삼' ;
+update member set id='merci', rid='bamboo7', birthday='1992-03-15' where name='이지현' ;
+update member set id='jjang9', rid='bamboo7', birthday='1999-09-29' where name='장근정' ;
+update member set id='dungdungik', rid='dbrghl23', birthday='1994-02-23' where name='백승현' ;
+update member set jno=7 where jno=9;
 
 select * from member;
-
 
 2) Jo 
 => captain 컬럼  varchar(10) 으로 수정
-=> Data update
-	
+alter table jo modify captain varchar(10);
+=> captain Data update
+update jo set captain = 'simsim916' where jno ='1';
+update jo set captain = 'agr4005' where captain ='2';
+update jo set captain = 'bamboo7' where jno = '3';
+update jo set captain='kso' where captain='3';
+update jo set captain='admin' where jno ='7';  
+
 select * from jo;
 
 ==============================================
 
-3) Java Code : 프로젝트 Web02
+3) Java Code : 프로젝트 web02
 
 => MemberVO, MemberDAO, MemberService
 => Controller, View
-=> memberList, memberDetail
+=> memberList
 
-4) 로그인, 로그아웃 구현
-=> loginForm.jsp , 컨트롤러 C03_mLogin,  컨트롤러 C03_mLogout
+4) 로그인, 로그아웃, MyInfo 구현
+=> loginForm.jsp , 컨트롤러 C02_Login,  컨트롤러 C02_Logout
 => 로그인 성공 : index.html -> index.jsp  : ~~님 안녕하세요 ~~, 로그인후 메뉴로
 => 로그인 실패 : loginForm 으로 재로그인 유도
 
+=> Myinfo(mdetail)
+   -> C03_mDetail.java, memberDetail.jsp 
+
 5) 회원가입 구현
 => index.jsp : 메뉴추가 ( JoinF -> joinForm.jsp )
-=> joinForm.jsp : action="/Web02/mjoin"
-=> 컨트롤러 : C05_mJoin.java 
-		-> 성공 : 로그인 유도 ( loginForm.jsp )
-		-> 실패 : 재가입 유도 ( joinForm.jsp )
+=> joinForm.jsp : action="/web02/mjoin"
+=> 컨트롤러 : C04_mJoin.java 
+      -> 성공 : 로그인 유도 ( loginForm.jsp )
+      -> 실패 : 재가입 유도 ( joinForm.jsp )
 
 6) 내정보 수정하기
 => 메뉴 추가
 => 수정 -> 내정보를 표시한 (Controller)  수정가능한  Form :  updateForm.jsp
-=> 컨트롤러 : C06_mUpdatejava 
-		-> 성공 : 내정보 표시 ( memberDetail.jsp )
-		-> 실패 : 재수정 유도 ( updateForm.jsp )
+=> 컨트롤러 : C05_mUpdatejava 
+      -> 성공 : 내정보 표시 ( memberDetail.jsp )
+      -> 실패 : 재수정 유도 ( updateForm.jsp )
 
 7) 회원탈퇴
 => 메뉴 추가
-=> 삭제 컨트롤러 : C07_mDelete.java 
-		-> 성공 : index.jsp ( message : 탈퇴 성공 !!! )
-		-> 실패 : index.jsp ( message : 탈퇴 실패 !!! )
+=> 삭제 컨트롤러 : C06_mDelete.java 
+      -> 성공 : home.jsp ( message : 탈퇴 성공 !!! )
+      -> 실패 : home.jsp ( message : 탈퇴 실패 !!! )
  
-=========================================================
-
-** Upload File
-1) Table
-=> file 정보 (경로와 파일명) 보관 컬럼 추가 : uploadfile varchar(50) 'basicman1.jpg'
-	alter table member add uploadfile varchar(50) default 'basicman1.jpg';
-
-=> 가본값 넣어놓기
-
-
-2) Java code
-2.1) List 출력하기
-=> memberList, DTO, DAO
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+==============================================
+Upload File
+1 Table
+ file 정보(경로와 파일명) 보관 컬럼 추가 : uploadfile varchar(50) default 'KarinaBlack.jpg';
+ alter table member ADD uploadfile varchar(50) default 'KarinaFlower1.jpg';
+ 
+ 기본값 넣어놓기
+  update member set uploadfile='KarinaBlack2.jpg' where jno=1;
+  update member set uploadfile='KarinaSpring.jpg' where jno=2;
+  update member set uploadfile='KarinaFlower2.jpg' where jno=3;
+  update member set uploadfile='KarinaSapporo1.jpg' where jno=4;
+  update member set uploadfile='KarinaFlower1.jpg' where jno=7;
+  
+  select id, name, jno, uploadfile from member;
+  
+ 개발환경 IDE(eclipse)에 준비
+  wepapp/resources/uploadImages/ 에 위의 파일들을 복사해놓기
+ 
+2 Java Code
+2.1 List, Detail 출력하기
+ memberList, memberDTO, memberDAO
+ 
+2.2 입력, 수정
+ joinForm, updateForm
+ 
 
 
