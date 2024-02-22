@@ -45,7 +45,6 @@ public class JoDAO {
 					dto.setCname(rs.getString(4));
 					dto.setProject(rs.getString(4));
 					dto.setSlogan(rs.getString(5));
-					dto.setUploadfile(rs.getString(6));
 
 					list.add(dto);
 				} while (rs.next());
