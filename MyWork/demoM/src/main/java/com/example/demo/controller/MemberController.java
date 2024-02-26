@@ -27,26 +27,44 @@ import com.example.demo.service.MemberService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j2;
+import pageTest.PageMaker;
+import pageTest.SearchCriteria;
 
-@Log4j2  // @Log4j -> Boot 에서는 2015년 이후 지원중단
+@Log4j2 // @Log4j -> Boot 에서는 2015년 이후 지원중단
 @Controller
 @AllArgsConstructor
 // member로 시작하는 요청들이 모두 여기로 오게함
 @RequestMapping(value = "/member")
 public class MemberController {
-	
+
 	MemberService service;
 	PasswordEncoder passwordEncoder;
 	// = new BCryptPasswordEncoder(); -> root--.xml에 bean을 등록
 
+	@GetMapping(value = "/aximlist")
+	public String aximlist(Model model) {
+		model.addAttribute("banana", service.selectList());
+		return "axTest/axMemberList";
+	}
+	
+	@GetMapping(value="axmcri")
+	public String anmcri(Model model, HttpServletRequest request,
+			SearchCriteria cri, PageMaker pageMaker) {
+		cri.setSnoEno();
+		
+		model.addAttribute("banana", service.selectList());
+		
+		
+		return "axTest/axmPageList";
+	}
+
 	@GetMapping("/log4jTest")
 	public String log4jTest() {
-		String name="simsim916";
+		String name = "simsim916";
 		log.trace(service.selectOne(name));
 		return "redirect:/home";
 	}
-	
-	
+
 	// ID 중복확인
 	@GetMapping("/idDupCheck")
 	public void idDupCheck(@RequestParam("id") String id, Model model) {
@@ -202,9 +220,7 @@ public class MemberController {
 		// 2 Service
 		// passwordEncoder 적용
 		dto.setPassword(passwordEncoder.encode(dto.getPassword()));
-		
-		
-		
+
 		// ** *****************************************
 		// ** Transaction_AOP 적용 *********************
 		// 1. 준비: pom.xml (dependency) 확인
@@ -221,7 +237,7 @@ public class MemberController {
 		// 3.2) Transaction 적용후 : 동일자료 2번 insert
 		// => 첫번째는 입력완료 되고, 두번째 자료입력시 Key중복 오류발생 하지만,
 		// rollback 되어 둘다 입력 안됨
-		
+
 		if (service.insert(dto) > 0) {
 			model.addAttribute("message", " 회원가입 성공 ");
 		} else {

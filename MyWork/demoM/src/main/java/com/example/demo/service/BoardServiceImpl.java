@@ -76,4 +76,9 @@ public class BoardServiceImpl implements BoardService {
 	public int delete(BoardDTO dto) {
 		return mapper.delete(dto);
 	}
+	
+	@Override
+	public List<BoardDTO> idbList(String id) {
+		return mapper.idbList(id);
+	}
 } // class

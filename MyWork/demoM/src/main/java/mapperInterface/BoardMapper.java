@@ -2,6 +2,8 @@ package mapperInterface;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Select;
+
 import com.example.demo.domain.BoardDTO;
 
 import pageTest.Criteria;
@@ -41,5 +43,8 @@ public interface BoardMapper {
 
 	// delete
 	public int delete(BoardDTO dto);
+	
+	@Select("SELECT * FROM board WHERE id=#{id}")
+	public List<BoardDTO> idbList(String id);
 
 }

@@ -1,12 +1,16 @@
 package com.example.demo.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +21,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.example.demo.domain.BoardDTO;
 import com.example.demo.domain.JoDTO;
 import com.example.demo.domain.MemberDTO;
 import com.example.demo.domain.UserDTO;
+import com.example.demo.service.BoardService;
 import com.example.demo.service.JoService;
 import com.example.demo.service.MemberService;
 
@@ -128,6 +135,7 @@ public class RESTController {
 
 	MemberService memberService;
 	JoService joService;
+	BoardService boardService;
 	PasswordEncoder passwordEncoder;
 
 	@GetMapping("/hello")
@@ -254,6 +262,23 @@ public class RESTController {
 	// http://localhost:8080/spring02/rest/incheck.json?jno=11&captain=banana
 	// => 502 Test: http://localhost:8080/spring02/rest/incheck?jno=5&captain=banana
 
+	@GetMapping("/idblist/{id}")
+	public ResponseEntity<?> idblist(@PathVariable("id") String id) {
+		ResponseEntity<?> result = null;
+
+		List<BoardDTO> list = boardService.idbList(id);
+
+		if (list != null && list.size() > 0) {
+			result = ResponseEntity.status(HttpStatus.OK).body(list);
+			log.info("idblist check");
+		} else {
+			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("출력자료 없음");
+			log.info("idblist check");
+		}
+
+		return result;
+	}
+
 	@GetMapping(value = "/incheck", params = { "jno", "captain" })
 	public ResponseEntity<JoDTO> inCheck(int jno, String captain) {
 		// 1) 준비
@@ -339,28 +364,26 @@ public class RESTController {
 	// 나가는 데이터를 제한할때 produces (위에서는 String을 Return 함을 강제함)
 	// => consumes를 설정하면 Request Header에 보내는 Data가 JSON 임을 명시해야함.
 	// => @RequestBody : Json -> Java 객체로 파싱
-	@PostMapping(value="/rslogin", consumes=MediaType.APPLICATION_JSON_VALUE , produces = MediaType.TEXT_PLAIN_VALUE)
+	@PostMapping(value = "/rslogin", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<?> rslogin(HttpSession session, @RequestBody MemberDTO dto) {
 		ResponseEntity<String> result = null;
 		// 1) password 보관
 		String password = dto.getPassword();
-		
+
 		// 2) Service 처리
 		// => 성공: login 정보를 session에 보관후, status OK, body="성공 message"
-		// 	실패: status INTERNAL_BAD_GATEWAY 502, body="실패 message"
+		// 실패: status INTERNAL_BAD_GATEWAY 502, body="실패 message"
 		dto = memberService.selectOne(dto.getId());
-		
-		if ( dto != null && passwordEncoder.matches(password, dto.getPassword())) {
+
+		if (dto != null && passwordEncoder.matches(password, dto.getPassword())) {
 			session.setAttribute("loginID", dto.getId());
 			session.setAttribute("loginName", dto.getName());
-			result = ResponseEntity.status(HttpStatus.OK)
-					.body("로그인 성공");
+			result = ResponseEntity.status(HttpStatus.OK).body("로그인 성공");
 			log.info("** rsLogin 성공 : " + HttpStatus.OK);
 		} else {
-			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY)
-					.body("로그인 실패");
+			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("로그인 실패");
 			log.info("** rsLogin 실패 : " + HttpStatus.BAD_GATEWAY);
-			
+
 		}
 		return result;
 	}
@@ -368,37 +391,70 @@ public class RESTController {
 	// 2) login2
 	// => requeset : JSON , response : JSON
 	// => UserDTO 사용, login 정보를 담아서 전송
-	@PostMapping(value="/rsloginjj", consumes=MediaType.APPLICATION_JSON_VALUE , produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/rsloginjj", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> rsloginjj(HttpSession session, @RequestBody MemberDTO dto) {
 		ResponseEntity<UserDTO> result = null;
 		// 1) password 보관
 		String password = dto.getPassword();
-		
+
 		// 2) Service 처리
 		dto = memberService.selectOne(dto.getId());
-		
-		if ( dto != null && passwordEncoder.matches(password, dto.getPassword())) {
+
+		if (dto != null && passwordEncoder.matches(password, dto.getPassword())) {
 			session.setAttribute("loginID", dto.getId());
 			session.setAttribute("loginName", dto.getName());
-			
+
 			// => response 로 전송할 객체생성
-			//		UserDTO, 빌더 패턴 적용
-			//		UserDTO 의 값 변경을 예방하기위해 final 을 사용하기도 함.
-			final UserDTO userDTO = UserDTO.builder()
-					.id(dto.getId())
-					.username(dto.getName())
-					.build();
-			
-			
-			result = ResponseEntity.status(HttpStatus.OK)
-					.body(userDTO);
+			// UserDTO, 빌더 패턴 적용
+			// UserDTO 의 값 변경을 예방하기위해 final 을 사용하기도 함.
+			final UserDTO userDTO = UserDTO.builder().id(dto.getId()).username(dto.getName()).build();
+
+			result = ResponseEntity.status(HttpStatus.OK).body(userDTO);
 			log.info("** rsLogin 성공 : " + HttpStatus.OK);
 		} else {
-			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY)
-					.body(null);
+			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(null);
 			log.info("** rsLogin 실패 : " + HttpStatus.BAD_GATEWAY);
-			
+
 		}
 		return result;
 	}
+
+	// 3) Join
+	// => image 포함, "multipart/form-data" Type 으로 요청
+	// => consumes, produces 설정
+	@PostMapping(value = "/rsjoin", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
+	public ResponseEntity<?> rsjoin(MemberDTO dto) throws Exception {
+		ResponseEntity<String> result = null;
+
+		// 🎃🎃 Join Service 처리
+		// => MultipartFile, PasswordEncoder
+
+		String realPath = "Z:\\JavaWebStudy\\MTest\\IDESet\\webapps\\demoM";
+		System.out.println("realPath => " + realPath);
+
+		realPath += "\\resources\\uploadImages\\";
+
+		String file1 = "", file2 = "basicman1.jpg";
+		MultipartFile uploadfilef = dto.getUploadfilef();
+		if (uploadfilef != null && !uploadfilef.isEmpty()) {
+			file1 = realPath + uploadfilef.getOriginalFilename();
+			uploadfilef.transferTo(new File(file1));
+			file2 = uploadfilef.getOriginalFilename();
+		}
+		dto.setUploadfile(file2);
+
+		// passwordEncoder 적용
+		dto.setPassword(passwordEncoder.encode(dto.getPassword()));
+
+		if (memberService.insert(dto) > 0) {
+			result = ResponseEntity.status(HttpStatus.OK).body("성공");
+			log.info("** rsJoin 성공 : " + HttpStatus.OK);
+		} else {
+			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("실패");
+			log.info("** rsJoin 실패 : " + HttpStatus.BAD_GATEWAY);
+		}
+
+		return result;
+	}
+
 }
