@@ -188,6 +188,13 @@ public class RESTController {
 		return dto;
 	}
 
+	@GetMapping("/aximlista")
+	public ResponseEntity<?> aximlista(){
+		ResponseEntity<?> result = null;
+		
+		
+		return result;
+	}
 	// 3) Collection return
 	// 3.1) Map
 	// => XML로 Return하는 경우 Key값 주의 (변수명 규칙)

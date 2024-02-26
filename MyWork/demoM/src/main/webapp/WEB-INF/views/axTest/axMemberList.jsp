@@ -31,7 +31,7 @@
 			 -->
 		<tr>
 			<td onclick="idbList('${b.id}')">${b.id}</td><%-- <td>${b.password}</td> --%><td>${b.name}</td>
-			<td>${b.age}</td><td>${b.jno}</td><td>${b.info}</td>
+			<td>${b.age}</td><td onmousemove="showMemberList(event,'${b.jno}')">${b.jno}</td><td>${b.info}</td>
 			<td>${b.point}</td><td>${b.birthday}</td><td>${b.rid}</td>
 			<td><img alt="myImage" width="150" height="170"
 				src="resources/uploadImages/${b.uploadfile}"></td>

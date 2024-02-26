@@ -97,3 +97,26 @@ function idbList(id) {
             alert("시스템 오류");
     });
 }
+
+//	2.2) axiDelete('${m.id}')
+//		=> 요청명 : "rest/axidelete/" PathVariable 적용
+//		=> response : 성공/실패 여부만 전달받음, 그러므로 RESTController로
+//		=> 성공 : Deleted 로 변경, onclick 이벤트 해제
+function axiDelete(id){
+	let url = "/rest/axidelete/"+id;
+	axios.delete(url
+	).then(response => {
+		
+	}).catch(err => {
+		if(err.response.status == '502')
+			alert(err.response.data)
+		else 
+			alert('시스템 오류')
+	})
+}
+
+function showMemberList(event){
+	console.log(event.pageX);
+	console.log(event.pageY);
+	let url = "/rest/aximlista/"+id;
+}
