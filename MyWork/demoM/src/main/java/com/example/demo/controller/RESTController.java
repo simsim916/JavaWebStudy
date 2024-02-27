@@ -188,11 +188,20 @@ public class RESTController {
 		return dto;
 	}
 
-	@GetMapping("/aximlista")
-	public ResponseEntity<?> aximlista(){
+	@GetMapping("/aximlista/{jno}")
+	public ResponseEntity<?> aximlista(@PathVariable("jno") String jno){
 		ResponseEntity<?> result = null;
 		
-		
+		List<MemberDTO> list = memberService.selectJoList(jno);
+
+		if (list != null && list.size() > 0) {
+			result = ResponseEntity.status(HttpStatus.OK).body(list);
+			log.info("aximlista check");
+		} else {
+			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("출력자료 없음");
+			log.info("aximlista check");
+		}
+
 		return result;
 	}
 	// 3) Collection return
