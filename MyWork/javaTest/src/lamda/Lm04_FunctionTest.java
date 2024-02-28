@@ -4,6 +4,7 @@ import java.util.function.Function;
 
 //** FunctionalInterface 1
 //=> Function <T, R> 
+//		R apply(T t);
 //   T type 입력받아 R type return
 
 //** 실습
