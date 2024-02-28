@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +8,6 @@ import com.example.demo.domain.MemberDTO;
 import com.example.demo.entity.Member;
 import com.example.demo.repository.MemberRepository;
 
-import mapperInterface.MemberMapper;
 
 //** Service
 //=> 요청클래스 와 mapper클래스 사이의 연결(완충지대) 역할
@@ -37,51 +35,40 @@ import mapperInterface.MemberMapper;
 //	즉, Java interface, Mapper, Mapper의 namespace가 동일해야한다
 //	그리고 해당 메서드는 Mapper의 xml 구문의 id 속성값으로 찾는다
 
-@Service
-public class MemberServiceImpl implements MemberService {
-	
-	private final MemberRepository repository;
-	
-	// SelectList
-	@Override
-	public List<Member> selectList() {
-		return repository.findAll();
-	}
-
-	// selectJoList
-	@Override
-	public List<MemberDTO> selectJoList(String jno) {
-		return mapper.selectJoList(jno);
-	}
-
-	// selectOne
-	@Override
-	public MemberDTO selectOne(String id) {
-		return mapper.selectOne(id);
-	}
-
-	// insert
-	@Override
-	public int insert(MemberDTO dto) {
-		return mapper.insert(dto);
-	}
-
-	// update
-	@Override
-	public int update(MemberDTO dto) {
-		return mapper.update(dto);
-	}
-
-	// pwUpdate
-	@Override
-	public int pwUpdate(MemberDTO dto) {
-		return mapper.pwUpdate(dto);
-	}
-
-	// delete
-	@Override
-	public int delete(String id) {
-		return mapper.delete(id);
-	}
-
-}
+/*
+ * @Service public class MemberServiceImpl implements MemberService {
+ * 
+ * private final MemberRepository repository;
+ * 
+ * // SelectList
+ * 
+ * @Override public List<Member> selectList() { return repository.findAll(); }
+ * 
+ * // selectJoList
+ * 
+ * @Override public List<MemberDTO> selectJoList(String jno) { return
+ * mapper.selectJoList(jno); }
+ * 
+ * // selectOne
+ * 
+ * @Override public MemberDTO selectOne(String id) { return
+ * mapper.selectOne(id); }
+ * 
+ * // insert
+ * 
+ * @Override public int insert(MemberDTO dto) { return mapper.insert(dto); }
+ * 
+ * // update
+ * 
+ * @Override public int update(MemberDTO dto) { return mapper.update(dto); }
+ * 
+ * // pwUpdate
+ * 
+ * @Override public int pwUpdate(MemberDTO dto) { return mapper.pwUpdate(dto); }
+ * 
+ * // delete
+ * 
+ * @Override public int delete(String id) { return mapper.delete(id); }
+ * 
+ * }
+ */

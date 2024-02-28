@@ -40,11 +40,15 @@
 	&nbsp;<a href="bcrypt">BCrypt</a><br>
 	&nbsp;<a href="board/bPageList">BPage</a><br>
 	&nbsp;<a href="/axtestform">AjaxTest</a><br>
+	&nbsp;<a href="/ginsert">Ginsert</a>
+	&nbsp;<a href="/glist">GList</a>
+	&nbsp;<a href="/gupdate">GUpdate</a><br>
+	&nbsp;<a href="/gdelete?gno=6">Gdelete=6</a><br>
+	&nbsp;<a href="/gpage">gpage</a><br>
 	
 <!-- 절대경로로 이미지넣어주기 -->
 <img alt="" src="resources/images/Arcana1.png" width="250" height="250">
 <img alt="" src="resources/images/Arcana2.gif" width="250" height="250">
-<img alt="" src="resources/images/Arcana1.png" width="250" height="250">
 <img alt="" src="resources/images/Arcana3.gif" width="250" height="250"><br>
 <hr>
 </body>
