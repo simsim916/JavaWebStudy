@@ -24,8 +24,8 @@
 			<td><a href="joDetail?jCode=D&jno=${b.jno}">${b.jno}</a></td>
 			<td>${b.jname}</td><td>${b.captain}</td><td>${b.cname}</td>
 			<td>${b.project}</td><td>${b.slogan}</td>
-			<td><img alt="myImage" width="150" height="170"
-				src="/spring02/resources/uploadImages/${b.uploadfile}"></td>
+			<%-- <td><img alt="myImage" width="150" height="170"
+				src="/spring02/resources/uploadImages/${b.uploadfile}"></td> --%>
 		</tr>
 	</c:forEach>
 </c:if>

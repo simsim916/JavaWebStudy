@@ -3,28 +3,29 @@ package com.example.demo.service;
 import java.util.List;
 
 import com.example.demo.domain.MemberDTO;
+import com.example.demo.entity.Member;
 
 public interface MemberService {
 
 	// SelectList
-	List<MemberDTO> selectList();
+	List<Member> selectList();
 
-	// selectJoList
-	List<MemberDTO> selectJoList(String jno);
+	List<Member> findByJno(String jno);
+
+	void updatePassword1(String id, String password);
 
 	// selectOne
-	MemberDTO selectOne(String id);
+	Member selectOne(String id);
 
 	// insert
-	int insert(MemberDTO dto);
-
-	// update
-	int update(MemberDTO dto);
+	Member save(Member entity);
 
 	// pwUpdate
-	int pwUpdate(MemberDTO dto);
+	Member pwUpdate(Member entity);
 
 	// delete
-	int delete(String id);
+	void deleteById(String id);
 
+	// ** Join
+	List<MemberDTO> findMemberJoin();
 }
