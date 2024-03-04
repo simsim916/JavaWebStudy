@@ -102,4 +102,15 @@ public class MemberDTO extends JoDTO{
 	// pom.xml dependency 추가
 	// 구현체 commonsMultipartFile를 생성(servlet--.xml)
 	private MultipartFile uploadfilef;
+	
+	// => Join 구문결과 받기위해서는 
+    //      select 구문의 순서와 동일하게 모든 컬럼을 초기화하는 생성자 필요함. 
+    //    default 생성자도 필수사항 임을 주의.
+    public MemberDTO(String id, String name, int jno, String jname, String project) {
+        this.id = id;
+        this.name = name;
+        this.jno = jno;
+        super.jname = jname;
+        super.project = project;
+    }
 }
