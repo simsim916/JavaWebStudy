@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>** function: Default Parameters **</title>
+  <script>
+    // Test1. Default Parameters
+    function test(name, activity) {
+      console.log(`** ${name} 씨는 ${activity} 를 좋아합니다`);
+    } //test
+    test('홍길동','태권도');
+    test(); //** undefined 씨는 undefined 를 좋아합니다
+
+    function testDefault(name='김길동', activity='수영') {
+      console.log(`** ${name} 씨는 ${activity} 를 좋아합니다`);
+    } //testDefault
+    testDefault(name='김소라', activity='커피만들기');
+    testDefault();
+
+    // Test2. 화살표 함수와 this
+    // => 일반함수
+    let gang = {
+      resorts: ["강릉","속초","동해","설악산"],
+      print: function(delay=1000) {
+                console.log('** print Test1) => '+this.resorts.join(","));
+                // => this 는 현재객체 gang 을 인식: ** print Test1) => 강릉,속초,동해,설악산
+                setTimeout(function() {
+                  console.log('** print Test2) => '+this.resorts.join(","))  
+                  // => 일반함수는 this 값을 새로 바인딩하고, 이경우에는 window 객체를 가르킴 
+                  //     Uncaught TypeError: Cannot read properties of undefined (reading 'join')
+                  // }, delay); => bind 사용전 Code
+
+                  // => 이를 해결해 주는것이 함수의 bind 메서드
+                  }.bind(this), delay); // bind 사용후 Code : 객체 gang 을 this 에 bind
+      } //print
+    } //gang
+    gang.print();
+
+    // => 화살표함수 : CallBack 함수는 화살표함수로 가능
+    let jeju = {
+      resorts: ["제주","서귀포","유채꽃밭","한라산"],
+      print: function(delay=1000) {
+                console.log('** print Test1) => '+this.resorts.join(","));
+                // => this 는 현재객체 jeju 인식 
+                setTimeout(
+                  () => console.log('** print Test2) => '+this.resorts.join(","))
+                  // => this 는 jeju 객체를 가르킴
+                  , delay);  
+      } //print
+    } //jeju
+    jeju.print();
+
+  </script>
+
+</head>
+<body>
+  <h2>** 1. Default Parameters</h2>
+  <pre>
+      => 함수 정의시에 Default Parameters 를 정의하면,
+        매개(Parameter)변수 없이 호출시에 Default Parameter 의 값이 적용됨.
+      => console 에서 확인하세요 ~~
+
+  <h2>** 2. 화살표 함수(Arrow Function)</h2>
+      => 제한사항	
+      - this에 대한 바인딩이 없음.
+      - methods(객체의 속성) 로 사용될 수 없음.
+      - 생성자(Constructor) 함수 로 사용할 수 없음.
+
+      => 예시
+      // 매개변수가 없는 경우 : 괄호 생략 불가능
+      let foo = () => console.log('bar');
+      // let foo = function() { console.log('bar'); }
+      foo(); // bar
+      
+      // 매개변수가 하나인 경우 : 괄호 생략가능
+      let foo = x => x;
+      foo('bar'); // bar
+	
+      // 매개변수가 여러개인 경우 : 괄호생략 불가능 
+      // body 의 실행문이 1문장 이면 {   } 생략가능
+      let foo = (a, b) => a + b; // 간단하게 한줄로 표현할 땐 "{}", return 없이 값이 반환됩니다.
+      foo(1, 2); // 3
+      
+      let foo = (a, b) => { return a + b }; //"{}"를 사용하면 return 생략불가능
+      foo(1, 2); // 3
+      
+      let foo = (a, b) => { a + b }; // "{}"를 사용했는데 return이 없을 때 
+      foo(1, 2); // undefined
+      
+      let foo = (a, b) => { // 여러줄 썼을 때
+        let c = 3;
+        return a + b + c;
+      }
+      foo(1, 2, 3) // 6
+   
+</pre>
+</body>
+</html>

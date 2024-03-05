@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>** Collection Map **</title>
+  <script>
+    // ** Map
+    // 1) 정의
+    // => 생성과 초기화
+    let myMap = new Map([['a',111],['b',222],['c',333]]);
+    console.log(`** Test1 => size=${myMap.size}, a=${myMap.get('a')}`);
+    myMap.set('a','aaa'); //수정
+    console.log(`** Test2 => size=${myMap.size}, a=${myMap.get('a')}`);
+    myMap.set('d','ddd'); // 추가
+    console.log(`** Test3 => size=${myMap.size}, d=${myMap.get('d')}`);
+    myMap.delete('b');    // 삭제
+    console.log(`** Test4 => size=${myMap.size}, b=${myMap.get('b')}`); //undefined
+    // 존재 확인
+    console.log(`** Test5 => 존재확인 a=${myMap.has('a')}, k=${myMap.has('k')}`) ;
+ 
+    // => 생성후 초기화
+    let sMap = new Map();
+    sMap.set('1','오원희');
+    sMap.set('2','어성은');
+    sMap.set('3','이진기');
+    sMap.set('4','유희상');
+
+    // 2) 활용 :  for ~ of
+    // => 출력1
+    for ( const [key, value] of sMap ) {
+      console.log(`** for 1 =>  key=${key}, name=${value}`);
+    } //for
+    // => 출력2 : entries(맵의 기본 이터레이터) 적용됨
+    for ( const ss of sMap ) {
+      console.log(`** for 2 =>  ss=${ss}`);
+      console.log(`** for 3 =>  ${ss[0]}번= ${ss[1]}`);
+    } //for
+
+    // => 순회 메서드: keys, values, entries(맵의 기본 이터레이터)
+    for ( let ss of sMap.keys() ) {
+      console.log(`** for 4 =>  ss=${ss}`);
+    }
+    for ( let ss of sMap.values() ) {
+      console.log(`** for 5 =>  ss=${ss}`);
+    }
+    for ( let ss of sMap.entries() ) {
+      console.log(`** for 6 =>  ss=${ss}`);
+    }
+    // => 모든 엔트리 일괄삭제
+    myMap.clear(); 
+    console.log(`** 모든 엔트리 일괄삭제 => size=${myMap.size}`); //size=0
+
+    // ** 활용1 : key 가 객체인 경우
+    const u1 = {id:'banana1', name:'홍길동1'};
+    const u2 = {id:'banana2', name:'홍길동2'};
+    const u3 = {id:'banana3', name:'홍길동3'};
+    const u4 = {id:'banana4', name:'홍길동4'};
+    // => Map 생성
+    const uMap = new Map();
+    // => 초기화
+    uMap.set(u1 , 'Gold');
+    uMap.set(u2 , 'Silver');
+    uMap.set(u3 , 'Diamond');
+    uMap.set(u4 , '일반');
+
+    // => 과제 : for ~ of 이용해서 
+    // 1) id, name 출력하기
+    for ( let u of uMap.keys() ){
+    	console.log(`** User => id=${u.id}, name=${u.name}`);
+	  } 
+    // 2) id 와 등급(value) 출력
+    for ( let u of uMap.entries() ){
+    	console.log(`** User => ${u[0].id}= ${u[1]} 등급`);
+	  } 
+
+    // ** ** 활용2 : value 가 객체인 경우
+    // => Student 프로토타입 을 작성 ( 속성: nick, name )
+    function Student(nick, name) {
+      this.nick = nick;
+      this.name = name;
+    }
+    // => 인스턴스를 4개 만들고
+    const m1 = new Student('용감한 수달', '오원희');
+    const m2 = new Student('춤추는 상괭이', '어성은');
+    const m3 = new Student('귀여운 바다사자', '이진기');
+    const m4 = new Student('지혜로운 북극곰', '유희상');
+   
+    // => Map 에 담기 (key: 1~4, value: Student) 
+    let mMap = new Map(); 
+    // Map에 넣기 (key는 번호 eg.1~4, value 는 student)
+    mMap.set('1', m1);
+    mMap.set('2', m2);
+    mMap.set('3', m3);
+    mMap.set('4', m4);
+    // => 출력1
+    for (const [key, value] of mMap) {
+      console.log(`** Member => Key=${key}, ${value.nick}, ${value.name}`);
+    }
+    // => 출력2
+    for (let mm of mMap.entries()) {
+            console.log(`key=${mm[0]}, nick=${mm[1].nick}, name=${mm[1].name}`);
+    }
+    for (const mm of mMap) {
+      console.log(`** Member => Key=${mm[0]}, ${mm[1].nick}, ${mm[1].name}`);
+    }
+
+  </script>
+</head>
+<body>
+  <pre>
+    <h2>** 컬렉션(Collections) 장점 **</h2> 
+    => Object, Array를 사용하는 것 보다 최적화된 구현체를 제공
+    => ES6 : Map, Set, WeakMap, WeakSet
+    
+    ** Map **
+    => 특징
+      - Key - Value 의 쌍으로 이루어진 컬렉션
+      - key 를 사용해서 value 를 get, set 할 수 있음
+      - key 들은 중복될 수 없음 : 하나의 key 에는 하나의 value 만 허용
+      - key 로 사용가능한 데이터 Type 
+        : string, symbol(ES6), object, function 등
+        : number 는 사용불가능
+    => 객체와 비교
+      - 객체는 속성 추가시 내장 속성과 이름 중복으로 충돌이 일어날 수 있음.
+      - 객체는 이터러블 규약을 따르지 않으나 맵은 따름 ( for ~ of 가능 ) 	
+      - 속성의 Key는 항상 문자열 이어야 함. (ES6 에서는 심볼도 가능함)
+      - 객체의 속성의 수를 알수 없음.(size나 length 같은 메서드가 없음)
+  </pre>
+
+</body>
+</html>

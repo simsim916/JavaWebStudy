@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>** Error 처리 **</title>
+  <script>
+    // ** try ~ catch ~ finally 
+    // 1) 적용하지않은 경우
+    console.log(`** Test Start`);
+    //foo();  
+    // => 비정상 종료
+    //    Uncaught ReferenceError: foo is not defined
+    // 2) 적용
+    let age=200;
+    try {
+      //foo();
+      // ** Error 생성하기
+      if ( age>=200) {
+        // 오류 상황 : Error 객체생성 & 던져줌(throw) -> catch 블럭으로
+        throw new Error('** My Error 발생 **');
+      }
+      console.log(`** try : 여기는 try 영역`);
+    } catch (error) {
+      // => error : try 코드 블록에서 발생한 Error 객체가 전달됨.
+      //    ReferenceError: foo is not defined
+      console.log(`** Error 발생 => ${error}`);
+    } finally {
+      console.log(`** finally : 무조건 실행`);
+    }
+    console.log(`** Test End`);
+  </script>
+</head>
+<body>
+  <h2>** Error 처리 **</h2>  
+  => try ~ catch ~ finally <br>
+  => Error 생성하기 <br>
+  
+</body>
+</html>

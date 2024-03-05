@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** 새로 추가된 컬렉션 Weak Collections **</title>
+<script>
+	//** Weak Map
+	// => key 는 반드시 참조형(객체형) 이어야함. 
+	let myMap = new WeakMap();
+	
+	// => key 정의
+	const banana={};
+	const apple={};
+	const orange={};
+	// => set
+	myMap.set(banana, "바나나");
+	myMap.set(apple, "애플");
+	myMap.set(orange, "오렌지");
+	
+	// => 열거관련, 크기 관련 속성 없음.
+	/*    Uncaught TypeError: myMap is not iterable
+	for (const [key, value] of myMap) {
+		console.log(`** Weak Map  ${key} = ${value}`);
+	}
+	*/
+	console.log(`** Weak_Map_get = ${myMap.get(orange)}`);
+	console.log(`** Weak_Map_delete = ${myMap.delete(orange)}`);  //true
+	console.log(`** Weak_Map_has = ${myMap.has(orange)}`);   //flase
+	
+	// ** Weak Set
+	// => Weak Map 과 동일한 특성
+	// => add, delete, has 등 지원
+	// => value 도 참조형(객체형) 이어야함.  
+	
+</script>
+
+</head>
+<body>
+<pre>
+** 새로 추가된 컬렉션 Weak Collections **
+
+Map과 Set이 참조하는 객체들은 강하게 연결되어 있습니다. 
+이는 JavaScript의 가비지 컬렉션이 메모리 수거를 못하게 막는 원인이 됨.
+( 만약 크기가 큰 Map과 Set의 객체가 더 이상 쓰이지 않는다면 
+  가비지 컬렉션에서 이것을 가져가기 위해 비싼 비용을 치뤄야 함. )
+
+이것을 해결하기 위해 ES6에서는 Weak Map, Weak Set이 추가됨.
+이 컬렉션들은 더이상 사용되지 않을때, 메모리에서 쉽게 삭제되도록 '약한' 결합을 유지함.
+
+** Weak Map
+=> Weak Map은 Map과 비슷하지만, 메서드가 몇개 없고, 가비지 컬렉션의 처리가 다름.
+
+** Weak Set
+=> Weak Set 역시 Set과 비슷하지만 메서드가 몇개 없음.
+
+</pre>
+
+</body>
+</html>

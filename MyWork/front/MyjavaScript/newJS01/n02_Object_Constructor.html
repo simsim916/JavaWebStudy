@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>** Constructor 와 인스턴스 **</title>
+  <script>
+    // 1. Student 객체 프로토타입(생성자함수) 생성
+    // => 리터럴
+    const studentOld = {
+        name: '홍길동',
+        age: 20,
+        infoPrint:function() {
+          return `저는 ${this.name} 이고 ${this.age} 세 입니다.`;
+        }
+      } //studentOld
+    // => 프로토타입
+    // => function 으로 정의하고, 이름은 대문자로 시작함.
+    // => 이러한 함수를 생성자 함수라함.
+    // => this 를 이용해서 속성과 메서드 정의.
+    // => 생성자 함수 내부의 this는 생성자 함수가 생성할 인스턴스를 가리킨다.
+
+    // => 사용 : new 를 이용해서 인스턴스를 생성하고, 이 생성된 인스턴스를 통해 사용됨.
+    function Student(name, age) {
+        this.name=name;
+        this.age=age;
+        this.infoPrint=function() {
+          return `저는 ${this.name} 이고 ${this.age} 세 입니다.`;
+        }
+        // this.infoPrint() {
+        //     return `저는 ${this.name} 이고 ${this.age} 세 입니다.`;
+        //   } => 메서드축약 표현은 허용안됨, 화살표함수는 가능
+        this.agePrint=() => {
+          return this.age*this.age;
+        }   
+    } //Student
+      
+    // 2. Student 객체 인스턴스 4개 생성
+    const s1= new Student('김소라',28);
+    const s2= new Student('김진휘',26);
+    s2.name="김찬미";
+    s2.age=22;
+    console.log('** s1 => '+s1.infoPrint());
+    console.log('** s2 => '+s2.infoPrint());
+
+    // 3. 인스턴스를 배열에 담고 출력하세요 ~~ 
+    // 3.1) 배열정의
+    let ss = new Array(4);
+
+    // 3.2) 배열 초기화
+    ss[0]=s1;
+    ss[1]=s2;
+    ss[2]=new Student('김해림',29);
+    ss[3]=new Student('배정현',35);
+
+    // 3.3) 출력(반복문)
+    // => 연습 : age 의 합계 와 평균 출력하기
+    let avg=0;
+    for (let i=0; i<ss.length; i++) {
+      console.log(`** s${i} => ${ss[i].infoPrint()}`);
+      avg+=ss[i].age;
+    }
+    console.log(`** age합계=${avg} , age평균=${avg/ss.length}`);
+
+    // => eachFor (간편한_for) : of 적용 (info 만 출력)
+    for (let s of ss) {
+      console.log(`** of Test => ${s.infoPrint()}`);
+    }
+
+</script>
+
+</head>
+<body>
+   <h2>** Constructor 와 인스턴스 **</h2>
+   <pre>
+   => ex11_~ 에서 생성한것과 같은 student 객체를 
+      속성은 name, age, 메서드는 infoPrint 를 포함한 프로토타입(생성자함수) 으로 생성하고,
+      조원들의 인스턴스를 생성해서 console 출력 해보세요~   
+   </pre>
+</body>
+</html>

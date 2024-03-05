@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>** Array Test **</title>
+    <script>
+        "use strict"
+
+        let names = new Array();
+        // => name 예약어
+        names[0] = "가";
+        names[1] = "나";
+        names[2] = "다";
+        names[3] = "라";
+        names[4] = "마";
+        names[5] = "바";
+
+        document.write(names[0]);
+
+        // => 생성과 동시에 초기화
+        let days = new Array("일", "월", "화", "수", "목", "금", "토");
+        document.write(`** days => ${days}<br>`);
+
+        let money = [+1111, +2222, +1111, +111];
+        let total = 0;
+        for (let i = 0; i < money.length; i++) {
+            total += money[i];
+        }
+        document.write("total => " + total + "<br>");
+
+        // ** 배열의 메서드들
+        // 1) reverse() : 역순 정렬
+        days.reverse();
+        document.write(`** days reverse => ${days}<br>`);
+
+        // 2) sort() : 데이터 값 정렬
+        money.sort();
+        names.sort();
+        document.write(`** money sort => ${money}<br>`);
+        document.write(`** names sort => ${names}<br>`);
+
+        // 3) concat() : 배열과 배열의 결합
+        let result = names.concat(days);
+        document.write(`** names+days concat() => ${result}<br>`);
+
+        // 4) slice(startIndex, lastIndex 전) : 배열 자르기
+        document.write(`** result slice() => ${result.slice(4, 9)}<br>`);
+        // 인덱스4번 ~ 인덱스 8번까지 잘리는 모습을 확인할 수 있다.
+
+        // 5) join("구분자") : 구분자를 기준으로 데이터를 합친다.
+        document.write(`** result join("-") => ${days.join("-")}<br>`);
+
+        // 6) shift : 배열의 첫인덱스[0] 의 데이터를 삭제
+        //    unshift : 배열의 첫인덱스[0] 의 데이터를 넣어준다
+        let newName = "바나나";
+        result = names.shift();
+        document.write(`** names shift() 배열 첫 값 제거=> ${names}<br>`);
+        document.write(`&nbsp&nbsp => shift() 자체를 찍으면 삭제된 값을 반환한다.<br>`);
+
+        result = names.unshift(newName);
+        document.write(`** newNames unshift("바나나") 배열 첫 값 추가=> ${names}<br>`);
+        document.write(`&nbsp&nbsp=> unshift() 자체를 찍으면 추가된 배열의 길이를 반환한다.<br>`);
+
+        // 7) pop : 배열의 마지막 인덱스 데이터 삭제
+        //    push : 배열의 마지막 인덱스에 데이터 추가
+        newName = "스티브";
+        result = names.pop();
+        document.write(`** names pop() => ${names}<br>`);
+        document.write(`** names pop() 후 결과값=> ${result}<br>`);
+
+        result = names.push();
+        document.write(`** names push() => ${names}<br>`);
+        document.write(`** names push() 후 결과값=> ${result}<br>`);
+
+        // 8) map()
+        // => 주어진 배열의 값을 재정의 할 때 사용하는 방법
+        // => ECMA에는 "주어진 배열의 값들에 접근해 callbackfn을 통해
+        //    새로운 값을 정의하고 신규 배열을 만들어 반환한다"라고 정의됨.
+        //    callbackfn : 인자로 전달되는 함수
+        result = money.map(m => m * m);
+        document.write(`** money map(제곱) => ${result}<br>`);
+        document.write(`** money 원본값 변함없음=> ${money}<br><br><br>`);
+
+        // => callbackfn 의 인자값
+        //    m : 요소의 값
+        //    m : 인덱스
+        //    m : 순회하는 대상(원본배열)
+        result = money.map((m, i, s) => {
+            document.write(`m = ${m}<br>`);
+            document.write(`i = ${i}<br>`);
+            document.write(`s = ${s}<br>`);
+            return m * m;
+        });
+        document.write(`** map(인자 확인) => ${result}<br><br>`);
+
+        //=> map 사용시 주의 사항
+        //   map 의 CallBack 함수내에서 추가된 Data 에는 접근하지않음
+        result = money.map(m => {
+            money.push(123);
+            // => 배열 내 추가된 요소에 map 으로 접근할 수 있는가?
+            return m * m;
+        })
+        document.write(`** map(배열 값 추가된 값 확인) => ${money}<br>`);
+        document.write(`** map(배열 값 추가 후 제곱 확인) => ${result}<br>`);
+        document.write(`=> 도중에 추가된 값은 접근하지 못한 모습을 볼 수 있다.<br><br>`);
+
+
+        result = money.map(m => {
+            money.pop();
+            // => 배열 내 추가된 요소에 map 으로 접근할 수 있는가?
+            return m * m;
+        })
+        document.write(`** map(배열 값 pop 확인) => ${money}<br>`);
+        document.write(`** map(배열 값 pop 후 제곱 확인) => ${result}<br>`);
+        document.write(`=> 추가한 값에는 접근하지 못하지만, 삭제(pop)의 경우는 적용되는 모습.<br><br>`);
+
+        // 9. forEach()
+        // => forEach(callbackFn)
+        //    forEach(callbackFn, thisArg)
+        // => 배열의 각 요소에 대해 제공된 callbackFn 함수를 오름차순 인덱스 순서로 한 번씩 호출
+        //    -> callbackFn은 값이 할당된 배열 인덱스에 대해서만 호출
+        //    -> 항상 undefined를 반환하므로 체이닝 불가함 (map()과 차이점)
+        result = money.forEach(ele => ele * ele);
+        document.write(`** result forEach(리턴) => ${result}<br>`)
+        document.write(`&nbsp&nbsp=> 단순 순회하는 메서드이기 때문에 리턴 X<br>`)
+        money.forEach(ele => document.write(`** result forEach(순회) => ${ele}<br>`));
+        document.write("<br><br>")
+
+        money.map(m => m * m).forEach(ele => document.write(ele + 10 + "<br>"))
+
+
+        document.write("<hr>")
+
+        //10. reduce()
+        //=> 배열의 각 요소에 대해 주어진 리듀서 (reducer) 함수를 실행하고,
+        //   하나의 결과값을 반환
+        // 10.1) 예시1
+        let initValue = 100;
+        result = money.reduce(
+            (accumulator, currentValue) => {
+                document.write(`accumulator=${accumulator}, currentValue=${currentValue}<br>`)
+                return accumulator + currentValue
+            }, initValue
+        );
+        document.write(`** money reduce => ${result}<br>`)
+        document.write(`&nbsp&nbsp=> initValue 를 초기값(생략가능)으로 설정하고, 지정한 배열의 누적합`)
+        // => initialValue 는 연산의 초기값(생략가능),
+        //    accumulator 를 이용해서 값을 누적하고 최종 결과(단일값) 를 return
+
+        // 10.2) 예시2
+        // => 객체 배열에서의 값 합산 
+        let sumObj =
+            [{ x: 1, y: 10 }, { x: 2, y: 20 }, { x: 3, y: 30 }]
+                .reduce(
+                    (acc, curr) => { return acc + curr.x + curr.y }, initValue
+                );
+        console.log(sumObj);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>** Object Destructur **</title>
+    <script>
+        "use strict"
+
+        // ** 1. 객체 구조분해 사례
+        // => 아래 코드는 sandwich 객체를 분해해서 bread, meat의 값을 같은 이름의 변수에 넣어줌.
+        // => 그러나 두변수의 값을 변경해도 sandwich의 값에 영향을 주지는 않는다.  
+        let sandwich = {
+            bread: "더치 그런치",
+            meat: "참치",
+            cheese: "스위스",
+            toppings: ["토마토", "양파", "양상추"],
+
+        };
+
+        let { bread, meat } = sandwich;
+
+        console.log(bread);
+        console.log(meat);
+
+        // ** 2. Object 축약표현
+        // 2.1) Property 축약
+        // => ES5
+        let x = 1, y = 2;
+        let oldObj = {
+            x: x,
+            y: y,
+            sayHi: function () {
+                console.log(`sayHi : x=${oldObj.x}, y=${this.y}`);
+            }
+        }
+        console.log(`oldObj : x=${oldObj.x}, y=${oldObj.y}`);
+
+        // => ES6 : Property 축약 적용
+        //   객체의 속성명과 동일한 이름의 변수의 값이 할당
+        let xx = 11, yy = 22;
+        let newObj = {
+            xx,
+            yy,
+            sayHi: () => {
+                console.log(`sayHi : xx=${newObj.xx}, yy=${this.yy}`);
+            }
+        }
+        console.log(`newObj : xx=${newObj.xx}, yy=${newObj.yy}`);
+
+        // 2.2) 메서드 축약 
+        // => ES5: 익명함수 형식으로 정의
+        // => ES6: function 키워드 생략한 선언함수형식으로 정의
+        //         ES6 부터 정의된 메서드 정의 규정 
+        //          
+        oldObj.sayHi();
+        newObj.sayHi(); // 화살표 함수 : this 적용안됨
+
+    </script>
+</head>
+
+<body>
+    <h2>** 1. Object Destructuring(구조분해) **</h2>
+    <h2>** 2. Object 축약표현 **</h2>
+    => 2.1) Property 축약<br>
+    => 2.2) 메서드 축약<br>
+    <hr>
+    => Console 에서 확인하세요 ~~<br>
+</body>
+
+</html>
