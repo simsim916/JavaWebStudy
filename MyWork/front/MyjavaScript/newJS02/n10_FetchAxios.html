@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>** Fetch 와 Axios **</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    // 1) Fetch
+    // => response 를 2번에 나누어 받음
+    //    -> then 1단계
+    //        : response 의 header 먼저 인지함.
+    //        : status 확인후 성공/실패에 따른 처리
+    //        : 성공: body 결과를 받아 전달 (Body-reading 메서드 호출 후 return)
+    //        : 실패: 오류 발생시키고, 오류코드 전달
+    //    -> then 2단계 : 1단계에서 전달 받은 Data 처리 
+    // => fetch(url, [options]).then().then()....
+    /*
+        function feTest() {
+          fetch(url,{ method:'Post',
+                      headers:'.추후 배울예정.',
+                      body: { id: document.getElementById('id').value,
+                              password: '....',
+                              name: '....'
+                            }
+          }).then().then()....
+    */ 
+
+    let url1='../javaScript05/snowVillage.html';
+    function feTest() {
+      fetch(url1)
+      .then((response)=>{
+        // => status 확인후 성공/실패에 따른 처리
+        if (!response.ok) throw new Error(response.status);
+        // => catch 블럭으로
+        return response.text();
+      }).then((responsePage)=>{
+        document.getElementById('resultArea').innerHTML=
+                '** 서버 Response =><br>' + responsePage;  
+      }).catch((error)=>{
+        document.getElementById('resultArea').innerHTML=
+                `** 서버 Response => status=${error}`;
+      });
+    } //function
+
+    // 2) Axios
+    let url2='n09_03parameterResult.html';
+    function axTest() {
+      // axios({url:url2,
+      //        method:'Get'
+
+      // => Method 형식 요청
+      // get(url, data..., )
+      axios.get(url2
+      ).then((response)=>{
+        document.getElementById('resultArea').innerHTML=
+                '** 서버 Response 성공 =><br>' + response.data;  
+      }).catch((error)=>{
+        document.getElementById('resultArea').innerHTML=
+                `** 서버 Response 실패 =><br>
+                error.response=${error.response}<br>
+                error.response.status=${error.response.status}<br>
+                error.response.headers=${error.response.headers}<br>
+                error.response.message=${error.message}`;
+      });
+    }
+
+  </script>
+</head>
+<body>
+ <h2>** Fetch 와 Axios **</h2>
+ <button id="ftest" onclick="feTest()">FetchTest</button><br>
+ <button id="atest" onclick="axTest()">AxiosTest</button><br>
+ <hr>
+ <div id="resultArea"></div>
+  
+</body>
+</html>

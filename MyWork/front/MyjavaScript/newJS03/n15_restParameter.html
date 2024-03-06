@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>** 나머지 매개변수(Rest Parameter) **</title>
+  <script>
+    //** 나머지 매개변수(Rest Parameter)
+    // 1) 가변적인 매개변수(확정되지않은 나머지 매개변수) 정의 방법: arguments 활용
+    function test1(pp) {
+      //arguments =[11,22,33] -> 호출시 전달된 매개변수 (갯수무관) 모두 담아줌
+      if ( arguments[1] ) return pp+arguments[1];
+      else return arguments[0];
+    }
+    console.log(`test1 인자1개 => ${test1(11)}`);      // 11
+    console.log(`test1 인자2개 => ${test1(11,22)}`);   // 33
+    console.log(`test1 인자3개 => ${test1(11,22,33)}`);// 33
+
+    // => 비교
+    function test0(pp, qq, rr) {
+      return pp+qq+rr ;
+    }
+    console.log(`test0 인자1개 => ${test0(11)}`); //11+undefined+undefined=NaN 
+    console.log(`test0 인자2개 => ${test0(11,22)}`); //11+22+undefined=NaN
+    console.log(`test0 인자3개 => ${test0(11,22,33)}`);// 66
+    
+    // => function test2 를 작성하세요
+    //    인자로 전달되는 모든 숫자들의 합을 return 하도록   
+    function test2() {
+      let sum = 0;
+      for (let i=0; i<arguments.length; i++) {
+          sum += arguments[i];
+      }
+      return sum;
+    }
+    console.log(`test2 인자 0개 = ${test2()}`); // 0
+    console.log(`test2 인자 1개 = ${test2(11)}`); // 11
+    console.log(`test2 인자 2개 = ${test2(11, 22)}`); // 33
+    console.log(`test2 인자 3개 = ${test2(11, 22, 44)}`); // 77
+    console.log(`test2 인자 4개 = ${test2(11, 22, 44, 88)}`); // 165
+
+    // 2) 가변적인 매개변수(확정되지않은 나머지 매개변수) 정의 방법: 펼침연산자 사용 
+    function test3(pp, ...args) {
+      if ( args[0] ) return pp+args[0];
+      else return pp;
+    }
+    console.log(`test3 인자 1개 = ${test3(11)}`); // 11
+    console.log(`test3 인자 2개 = ${test3(11, 22)}`); // 33
+    console.log(`test3 인자 5개 = ${test3(11, 22, 33, 44, 55)}`); // 33
+    // => function test4 를 작성하세요
+    //    인자로 전달되는 모든 숫자들의 합을 return 하도록   
+    function test4(pp, ...args) {
+      let sum = pp;
+      for (let i=0; i<args.length; i++) {
+          sum += args[i];
+      }
+      return sum;
+    }
+    console.log(`test4 인자 0개 = ${test4()}`); // undefined 
+    console.log(`test4 인자 1개 = ${test4(11)}`); // 11
+    console.log(`test4 인자 2개 = ${test4(11, 22)}`); // 33
+    console.log(`test4 인자 5개 = ${test4(11, 22, 33, 44, 55)}`); // 
+  </script>
+
+</head>
+<body>
+<h2>** 나머지 매개변수(Rest Parameter) **</h2>
+<pre>
+  => JS function 의 특징
+  - 함수 인자와 전달 인자의 갯수가 달라도 오류 발생 되지 않음
+	 ( 순차적으로 할당되고 나머지는 할당 되지 않음 )
+	- 함수 호출시 내부에 arguments 객체가 생성되며 배열과 같은 형태로 전달된 인자를 원소로 저장함.
+	  그러므로 가변인자를 사용하는 경우 arguments 객체를 활용함.
+  
+=> 나머지 매개변수(Rest Parameter)
+	가변인자를 사용하는 경우 arguments 객체를 사용하지 않아도 됨.
+
+=> 기본 매개변수(Default Parameter)  
+  	초기값 설정이 가능하고 인수 선언시 먼저 선언된 인수의 값을 활용할 수 있음  
+</pre>
+  
+</body>
+</html>
