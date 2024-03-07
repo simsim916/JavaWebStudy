@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>** React Component01 : class **</title>
+</head>
+<body>
+  <h3>** React Component01 : class **</h3>
+  <hr>
+  <div id="react-container"></div> 
+  <hr>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script>
+  // ** 리액트 콤포넌트 역사
+  // => React에서 컴포넌트(component)는 앱의 일부를 랜더링하는 재사용 가능한 모듈이다.
+  //    즉, 재사용 가능한 UI 의 조각을 의미하며,
+  //    모든 UI는 결국 컴포넌트로 구성되고, 컴포넌트를 사용하면 UI 를 독립적. 재사용가능하게 분리할 수 있다.
+  // => React.createClass(최초) -> class 컴포넌트(React.Component) -> 함수 컴포넌트
+  // ** class 컴포넌트
+  // => 최근에는 권장하지 않는 문법, 참고만 한다. 
+
+  // ** map 을 이용한 class 컴포넌트
+  let items = ['연어 500그램','잣 1컵','버터상추 2컵'
+                  ,'옐로 스쿼시(호박의 일종) 1개','올리브 오일 1/2컵','마늘 3쪽'] ;
+  class IngredientList extends React.Component {
+    render() {
+      // 엘리먼트를 만들어줌
+      return React.createElement(
+            'ul',
+            {'className':'ingredients'}, 
+            items.map((item, i) => React.createElement('li', {key:i},item) ) //map
+      ) //createElement
+    } // render 메서드
+  } // class
+
+  class IngredientList2 extends React.Component {
+    renderListItem(item, i) {
+      return React.createElement('li', {key:i}, item)
+    }
+    // => renderListItem 메서드 정의하고, 아래 map에서 콜백함수 대신 호출해서 사용함
+
+    render() {
+      // 엘리먼트를 만들어줌
+      return React.createElement(
+            'ul',
+            {'className':'ingredients'}, 
+            items.map(this.renderListItem) //map
+      ) //createElement
+    } // render 메서드
+  } // class
+
+  // const list = React.createElement(IngredientList, null, null);
+  // ReactDOM.render(list,
+  //                 document.getElementById('react-container')); //render
+  ReactDOM.render(React.createElement(IngredientList2, null, null),
+                  document.getElementById('react-container')); //render                
+  </script>
+  
+</body>
+</html>

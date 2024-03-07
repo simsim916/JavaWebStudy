@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>** React Component02 : function **</title>
+</head>
+<body>
+  <h2>** React Component02 : function **</h2>
+  <hr>
+  <div id="react-container"></div> 
+  <hr>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script>
+    // ** 컴포넌트: 기본적으로 html 을 return
+    // => 1. 기본형 : 생성자함수를 이용한 객체 생성
+    function IngredientList1() {
+      return React.createElement('ul', {'className':'ingredients'}, 
+                        React.createElement('li', null, '연어 500그램'),
+                        React.createElement('li', null, '잣 1 컵'),
+                        React.createElement('li', null, '버터 상추 2 컵'),
+                        React.createElement('li', null, '옐로 스쿼시(Yellow Squash, 호박의 한 종류) 1개'),
+                        React.createElement('li', null, '올리브 오일 1/2 컵'),
+                        React.createElement('li', null, '마늘 3 쪽')) //ul
+    } //function1
+    // ReactDOM.render(React.createElement(IngredientList1, null, null),
+    //     document.getElementById('react-container'))
+
+    // => 2. Data 전달받기
+    //    -> 재료를 임의의 배열로 정의 : myRecipe
+    //    -> IngredientList 컴포넌트는 매개변수_{items} 를 통해 이배열(Data) 을 전달받아
+    //       map 으로 li 목록을 만들어낸다.
+    //    -> 이 컴포넌트는 익명함수로 정의 (화살표함수 가능)
+    //    -> 이후 랜더링 하면서 myRecipe 배열을 items 라는 프로퍼티로 넘긴다. 
+
+   // const IngredientList2 = function() {       }
+    const IngredientList2 = ({items}) => 
+      React.createElement(
+            'ul',
+            {'className':'ingredients'}, 
+            items.map((item, i) => React.createElement('li', {key:i},item) ) //map
+      ) //createElement & function2 종료
+      // => 컴포넌트를 정의한 화살표 함수의 경우 1 줄 이므로 { } 생략해야함
+      //    { } 있으면 실행안됨. 
+
+    let myRecipe = ['연어 500그램','잣 1컵','버터상추 2컵'
+                  ,'옐로 스쿼시(호박의 일종) 1개','올리브 오일 1/2컵','마늘 3쪽'] ;
+
+    // => 주의 : 컴포넌트의 매개변수 items 에 배열 myRecipe 를 전달해야한다 
+    ReactDOM.render(React.createElement(IngredientList2, {items:myRecipe}, null),
+        document.getElementById('react-container'))
+
+  </script>
+  
+</body>
+</html>

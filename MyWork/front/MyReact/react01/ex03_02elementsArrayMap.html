@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>** React Elements: Arrays.map 활용 **</title>
+</head>
+<body>
+  <button onclick="ingredient()">*재료*</button>&nbsp;&nbsp;&nbsp;
+  <button onclick="instruction()">*조리법*</button>
+  <hr>
+  <div id="react-container"></div> 
+  <hr>
+  
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script>
+  //** Data 로 엘리먼트 만들기
+  // => 배열에 재료를 저장해두고 map 메서드로 리액트 엘리먼트로 만들어줌.
+  //    map의 콜백함수의 매개변수(값, index, 대상객체)  
+  // => 단, map 의 콜백함수는 화살표함수로 표기하며 { } 사용금지 
+  //    사용시 실행안됨
+  // => 실습: 아래 ul 을 배열 형태로 처리 
+  // <ul class="ingredients">
+  //   <li>연어 500그램</li>
+  //   <li>잣 1 컵</li>
+  //   <li>버터 상추 2 컵</li>
+  //   <li>옐로 스쿼시(Yellow Squash, 호박의 한 종류) 1개</li>
+  //   <li>올리브 오일 1/2컵</li>
+  //   <li>마늘 3쪽</li>
+  // </ul>
+
+    function ingredient() {
+      let items = ['연어 500그램','잣 1컵','버터상추 2컵'
+                  ,'옐로 스쿼시(호박의 일종) 1개','올리브 오일 1/2컵','마늘 3쪽'] ;
+      const ingredients = React.createElement(
+            'ul',
+            {'className':'ingredients'}, 
+            items.map((item, i) => React.createElement('li',{key:i},item)) //map
+            //React.createElement("li", { key: i }, item)
+            // => map 이용시 각 자식 엘리먼트에는 key 속성_프로퍼티 사용 권장
+            //    key를 사용하면 DOM을 더 효율적으로 갱신가능 
+            //    사용하지않은경우 경고오류
+      )//createElement    
+      ReactDOM.render(ingredients,
+                      document.getElementById('react-container'));
+    } //function
+
+    function instruction() {
+      let items = ['오븐을 350도로 예열한다.',
+                  '유리 베이킹 그릇에 올리브 오일을 두른다.',
+                  '연어, 마늘, 잣을 그릇에 담는다.',
+                  '오븐에서 15분간 익힌다.',
+                  '옐로 스쿼시를 추가하고 다시 30분간 오븐에서 익힌다.',
+                  '오븐에서 그릇을 꺼내서 15분간 식힌다음에 상추를 곁들여서 내놓는다.'] ;  
+      const instructions = React.createElement(
+            'section',
+            {'className':'instruction'}, 
+            items.map((item, i) => React.createElement('p', {key:i},item) ) //map
+      )//createElement    
+      ReactDOM.render(instructions,
+                      document.getElementById('react-container'));            
+    } //function
+    
+  </script>
+
+</body>
+</html>

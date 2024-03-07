@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>*** JSX 사용 기본 Page **</title>
+</head>
+<body>
+  <div id="react-container"></div> 
+
+  <!-- React와 ReactDOM 라이브러리React Library & React DOM 
+       JSX 를 사용한 ReactCode 를 순수 React Code 로 변환 시켜주는 과정이 필요
+      => CDN 으로 babel을 활용 
+
+      => babel 용도
+        - JS 버전 맞추는 용도에서 시작되어 지금은 위의 React 변환 기능도 지원
+         ( java script의 최신문법을 구형 브라우저에서도 쓸 수 있도록해줌 ) 
+      -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  <script>
+    // 
+    // ** JSX (JavaScript and XML)
+    // => "A syntax extension to JavaScript" 로 정의되으며 직역하면 JS의 확장문법을 의미하며
+	//    JS구문을 HTML Tag 와 함께 사용할 수 있도록해줌. 
+	// => JS구문을 대부분 지원하며 { } 내부에 표기함
+    //    JS의 산술표현식, 문자열표현식, 논리표현식, 배열, 객체, 함수 등 포함가능 
+	// => 실행과정
+	//	  JSX 컴포넌트 -> 순수 React 컴포넌트, React.createElement(...) -> JS가 React.crea.. 함수 실행결과를 html로 표현
+	
+	// ** 확장자
+	// => 일반 자바스크립트파일 : ~.js
+	// => React 컴포넌트파일 : ~.jsx (타입스크립트 베이스라면 tsx)
+ 
+
+    /* ** 컴포넌트에 JSX 활용예
+   
+      1) 컴포넌트의 계층구조 표현
+        <ParentList>
+          <ChildComp />
+          <ChildComp />
+          <ChildComp />
+          <ChildComp />
+        </ParentList>  
+      
+      2) Html Tag 와 JavaScript 표현식 사용  
+        <h1>{'Hello JSX : '+ title}</h1>
+        <h1>{num1 + num2}</h1>
+        <h1>{boolTrue || boolFale}</h1>
+        <h1>{boolTrue && boolFale}</h1>
+        <input type='checkbox' defaultChecked={false} />
+
+      3) className : class는 JS 의 예약어 이므로 컴포넌트에서 class 속성 대신 사용
+      
+      4) 배열을 JSX 로 매핑
+      // => 이전예제의 items.map 으로 작성했던 li 부분을 {} 으로 
+      <ul>
+        {items.map((item, i) => ( <li key={i}>{item}</li> )) }
+      </ul>  
+
+
+    */
+        
+
+  </script>
+  
+</body>
+</html>

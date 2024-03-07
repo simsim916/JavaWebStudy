@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>** Module 과 Scope Test **</title>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  <script type="text/babel">
+    // ** babel, 바벨 
+    // => java script의 최신문법을 구형 브라우저에서도 쓸 수 있도록해줌.
+    // => 브라우저에서 코드를 실행하기전에 더 호환성이 높은 코드로 변환하는것을
+    //    컴파일링(compiling) 이라하고, 대표적인 JS 컴파일링도구가 바벨 이다.  
+    // => 단, 이것은 코드를 바이너리로 변환하는 전통적인 컴파일링언어 와는 다르게
+    //    JS 코드를 더많은 브라우저가 이해할수있는 다른 버전의 JS구문으로 변환해준다. 
+
+    // ** 모던 자바스크립트 (Modern Javascript)
+    // => ES6(ECMAScript 2015) 버전 이상의 자바스크립트를 지칭하는 용어
+    // => let, const (상수) 
+    //    이들은 블록 스코프(block scope)를 가지기 때문에 변수의 유효 범위(scope)가 더욱 명확해짐. 
+    // => 템플릿 리터럴(template literal _`....`, 백쿼트, 백틱), 화살표 함수(arrow function), 
+    //    클래스(class), 모듈화(module), 비구조화 할당(destructuring) 등의 기능이 추가되어
+    //    코드를 더욱 간결하고 가독성 좋게 작성할 수 있게됨.
+ 
+  </script>  
+</head>
+<body>
+  <h2>** Scope 과 Module Test **</h2>
+  <pre>
+    ** 변수의 Scope
+    => 전역변수
+      -> 현재스크립트 내의 어디서든 사용가능
+      -> 명시적 정의, 묵시적 정의 모두 가능
+    => 명시적 지역변수
+      -> 정의된 function 내에서만 사용가능
+    => 묵시적 지역변수
+      -> 일단 실행되어 값이 할당되면, 전역으로 사용됨.
+      -> 이러한 변수는 전역에서만 사용할 것을 권장하고, 
+         지역변수는 명시적으로 선언후 사용할 것을 권장함. 
+    => 반복자로 정의된 변수
+      -> var : function 에 종속된 지역변수
+      -> let : for 구문에 종속 ( Java 와 동일하게 해당 영역에만 적용됨 )	
+    
+    * 변수명이 동일한경우 전역변수 접근
+    => this 또는 window 로 접근
+    => 이 외에도 전역객체를 가리키는 식별자는 self, frames, global 등
+       이 있으나, ECMA11 (ES11) 에서는 globalThis 로 통일됨. 	 
+
+    ** Module
+    웹의 크기가 커지면서 파일을 여러개로 분리하게 되는데, 이때 분리된 파일 각각을 "Module"이라함.
+    모듈에 export, import를 적용하여 다른 모듈의 변수, 함수등을 호출할 수 있다.
+
+    => 모듈의 정의
+       HTML에서 모듈을 불러오기 위해 정의할때 Script Tag 에 type="module" 속성을 설정해 해당 스크립트가 모듈이라는 것을 브라우저가 알 수 있게 해준다.  
+    
+    => type="module"와 일반 스크립트의 다른 점
+       -> 항상 지연 실행됨.
+       모듈 스크립트는 HTML 문서가 완전히 준비될 때까지 대기 상태에 있다가 HTML이 다 만들어진 후에 실행되므로
+       항상 완전한 HTML 페이지를 볼 수 있고, 문서 내 요소에도 접근가능함
+       다만, 모듈 스크립트를 불러오는 동안 Loading Indicator(표시)  등을 넣어주어는것이 좋음.
+       -> 인라인 스크립트의 비동기 처리
+       일반 스크립트에서 async 속성은 외부 스크립트를 불러올 때에만 유효한데, 
+       모듈에서는 인라인 스크립트에도 적용할 수 있다.
+
+    => 모듈의 Scope
+       모듈 내부의 변수, 함수는 다른 스크립트에서 접근할 수 없다. 
+       이들을 모듈에서 외부로 공개하려면 export를, 다른모듈에서 사용하려면 import를 사용.
+       
+    ** 실습 **********************************************
+    ** Test1) let 사용시
+    * m01_bar.js :
+    => menu : 출력 잘됨
+    => window.menu : undefined ( 즉, 윈도우의 객체 아님)
+
+    * m01_foo.js : 이전코드의 영향을 받음
+    => menu : Uncaught SyntaxError: Identifier 'menu' has already been declared
+    => window.menu : Uncaught SyntaxError: Identifier 'window.menu' has already...
+
+    * 결론 : JS는 참조하고있는 ~.js 문서의 변수등을 Scope 구분없이 모두 전역으로 인식함.
+    1) let 사용시
+      전역변수로 사용되므로 scope 적용안되고, 윈도우의 객체로 인식되지않음. 
+    2) var 와 비교
+      전역변수로 사용되므로 scope 적용안되고, 윈도우의 객체로 인식됨. 
+      bar, foo 모두 출력됨 (foo 에서 값이 변경되는것임) 
+    
+    ** Scope 구별 적용 : 모듈화
+    => 확장자 : ~.mjs
+    => script Tag 에서 type='module'    
+  </pre>
+  <script src="m01_bar.js"></script>
+  <script src="m01_foo.js"></script>
+  => Test2) <br>
+  => 아래 두문서의 menu 는 Scope 이 다른 변수이다.
+  <!-- <script type="module" src="m02_bar.mjs"></script>
+  <script type="module" src="m02_foo.mjs"></script> -->
+    
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>** React Component02 : function 연습 **</title>
+</head>
+<body>
+  <h2>** 🍽 이탈리아 정통 까르보나라 👨‍🦳 **</h2>
+  <button onclick="test1()">*재료*</button>&nbsp;&nbsp;&nbsp;
+  <button onclick="test2()">*조리법*</button>&nbsp;&nbsp;&nbsp;
+  <button onclick="test3()">* SOS *</button>&nbsp;&nbsp;&nbsp;
+  <button onclick="test4()">* Image *</button>
+  <hr>
+  <div id="react-container"></div> 
+  <hr>
+  
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script>
+    // ** 과제
+    // 배열로 Data 를 전달받아 ul, li 로 출력하는 함수형 컴포넌트를 정의하고,
+    // => 배열2개, 버튼2개 (재료, 조리법) 를 정의하여 출력하도록 완성하세요   
+    // => Data 갯수는 5개이상
+
+    const myCompo = ({items}) =>  
+    // React.createElement(...) 단문이므로 { } 필요없고, 사용하면 실행안됨
+      React.createElement(
+            'ul',
+            {'className':'testList'}, 
+            items.map((item, i) => React.createElement('li', {key:i}, item) ) //map
+      ) //createElement & function2 종료
+
+     let color = ['Red','Orange','Yellow','Green','Blue','Navy','Purple'] ;
+     let menu = ['짜장','짬뽕','냉면','콩국수','쌀국수'] ;
+
+    function test1() {
+      ReactDOM.render(React.createElement(myCompo, {items:myRecipe1}, null),
+        document.getElementById('react-container'))
+    } 
+    function test2() {
+      ReactDOM.render(React.createElement(myCompo, {items:myRecipe2}, null),
+        document.getElementById('react-container'))
+    } 
+    function test3() {
+      ReactDOM.render(React.createElement(myCompo, {items:soraRecipe}, null),
+        document.getElementById('react-container'))
+    }   
+    function test4() {
+      document.getElementById('react-container').innerHTML=
+        '<img src="../images/nara.png" width="350" height="400">';
+    }
+
+    // ** 🍽 이탈리아 정통 까르보나라 👨‍🦳 **
+    let myRecipe1 = ['관찰레 (이탈리아식 돼지 볼살 소금절임) 200그램 🥩'
+                , '달걀 2개 🥚'
+                , '올리브유 2큰술 🍾'
+                , '8호 스파게티니 1인분 (90g) 🥢'
+                , '페코리노 로마노 치즈 (30g) 🧀'
+                , '소금 과 통후추 🧂'];
+    let myRecipe2 = ['냄비에 물을 끓이고 소금과 파스타 면을 넣고 9분간 끓인다.'
+        , '팬에 올리브유를 두르고 약불에 관찰레를 굽고, 익으면 불을 끄고 대기한다. 여기서 나오는 기름은 면과 섞여야 하니 버리지 않는다.'
+        , '보울에 달걀 노른자 2개, 소금 조금, 통후추를 그라인더로 10회 뿌리고 섞는다.'
+        , '풀어진 달걀에 페코리노 로마노 치즈를 2/3 넣고 잘 섞어 소스를 만든다.'
+        , '불이 꺼진 팬에 물끼를 뺀 파스타면을 넣고 관찰레와 잘 섞어준다.'
+        , '팬이 적당히 식은 상태에서 달걀 소스를 넣고 잘 섞어준다.'
+        , '★주의) 팬이 너무 달궈져 있으면 중국식 달걀 요리가 되니 주의하자!!'
+        , '소스가 면에 잘 섞이게 해주고, 접시에 덜어서 남은 치즈를 뿌리고, 후추를 그라인더로 15회 만큼 뿌린다.'
+        , '크리미하고 쿰쿰하고 짭짜롬한 이탈리아 정통 까르보나라 완성.  😗🤏🤏🤏 '];
+
+        let soraRecipe = ['팬에 식용유를 두른다','엄마를 부른다','엄마 계란은 삶으면 돼?','나와바 지지배야','완성!'];    
+
+  
+  </script> 
+  
+</body>
+</html>
