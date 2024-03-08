@@ -1,4 +1,4 @@
-let menu='짬뽕';
+let menu = '짬뽕';
 console.log(`** foo.mjs: menu=${menu}`);
 console.log(`** foo.js: menu=${window.menu}`); //undefined
 
@@ -19,5 +19,10 @@ console.log(`** foo.js: menu=${window.menu}`); //undefined
 // => export한 식별자 이름을 변경하여 import한다
 import { pi as PI, square as mySqure, Person as P } from './m02_bar.mjs';
 console.log(`** foo import 3 pi=${PI}`);
-console.log(`** foo import 3 square=${mySqure(5)}`);
 console.log(new P('Lee')); // Person { name: 'Lee' }
+console.log(`** foo import 3 square=${mySqure(5)}`);
+
+export function test() {
+    console.log(`** foo import 3 square=${mySqure(5)}`);
+
+}
