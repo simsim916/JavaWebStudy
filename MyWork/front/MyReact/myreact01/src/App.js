@@ -1,7 +1,7 @@
 import './App.css';
-import MyHeader from './components/Header';
-import Body from './components/Body';
-import Footer from './components/Footer';
+import MyHeader from './components01/Header';
+import Body from './components01/Body04';
+import Footer from './components01/Footer';
 // ** import
 // => 컴포넌트는 MyComp from real_File_path; 
 //    내부 코드에서 MyComp 이름으로 인식
