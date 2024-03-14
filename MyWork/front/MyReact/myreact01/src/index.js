@@ -29,11 +29,31 @@ import reportWebVitals from './reportWebVitals';
 //  - 레거시 context API 검사
 //  - Ensuring(보장) reusable state
 
+// 2. Router Test
+// => BrowserRouter 컴포넌트
+//  -> Router 적용하려는 최상위 컴포넌트를 감싸는 Rapper 컴포넌트
+//  -> 브라우저의 주소 변경을 감지하며 컴포넌트가 페이지를 구성하고 이동하는데 필요한 다양한 기능 제공
+// => HashRouter 컴포넌트
+//  -> url 에 # 을 추가해 어떤 Path 에서 접근 하더라도
+//    동일한 웹Page 를 제공할 수 있도록 해줌
+// => BrowserRouter 와 비교해본다 
+
+import { BrowserRouter, HashRouter } from 'react-router-dom';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
-    <App />
+  // <App />
   // </React.StrictMode>
+
+  // 2.Router Test
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+
+  // <HashRouter>
+  //   <App />
+  // </HashRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
