@@ -115,9 +115,9 @@ function App() {
                 3.3.1) a_href : page가 리로드(새로고침) 됨 
         */}
             <ul>
-                <li><NavLink to='/'>Home</NavLink></li>
-                <li><NavLink to='/topics'>Topics</NavLink></li>
-                <li><NavLink to='/contact'>Contact</NavLink></li>
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='/topics'>Topics</Link></li>
+                <li><Link to='/contact'>Contact</Link></li>
             </ul>
 
             <Routes>
