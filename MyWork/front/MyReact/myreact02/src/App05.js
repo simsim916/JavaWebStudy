@@ -17,8 +17,8 @@
 
 import './App.css';
 import Header from './components/Header';
-import TodoEditor from './components/TodoEditor';
-import TodoList from './components/TodoList';
+import TodoEditor from './components05/TodoEditor';
+import TodoList from './components05/TodoList';
 import React, {  useMemo, useCallback, useReducer, useRef, useState } from "react";
 
 // ** Mock Data
@@ -106,8 +106,9 @@ function App() {
 
   // ------------------------------------------------
   // ** TodoDispatchContext.Provider value 속성값
-  //    onCreate, onUpdate, onDelete 함수 최적화
-  // => 처음 한번만 (TodoList가 처음 리랜더링 될때) 실행되도록 메모이제이션 
+  //    onCreate, onUpdate, onDelete 함수 최적화 
+  // => 처음 한번만 (TodoList가 처음 리랜더링 될때) 실행되도록 메모이제이션함. 
+  //    전달시점에 생성하여 보내기 때문에 이렇게 하지 않으면 최적화가 적용되지않음
   const memoizedDispatches = useMemo(() => {
     return { onCreate, onUpdate, onDelete };
   }, []);
@@ -128,7 +129,7 @@ function App() {
       <TodoStateContext.Provider value={todo}>
         <TodoDispatchContext.Provider value={memoizedDispatches}>
         {/* <TodoDispatchContext.Provider value={{onCreate, onUpdate, onDelete}}>  
-            => cONTEXT 분리 했어도 최적화 적용 되지 않음  */}
+            => Context 분리 했어도 최적화 적용 되지 않음  */}
           <TodoEditor />
           <TodoList />
         </TodoDispatchContext.Provider>

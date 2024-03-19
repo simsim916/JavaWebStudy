@@ -27,6 +27,14 @@
 //      인자는 Data를 공급할 Context 이고, 
 //      이 Context 가 제공하는 Data를 return 함.  
 
+// ** 실습 순서
+// => App04 : Context 적용 1단계
+//  -> TodoItem의 React.memo 적용안됨 확인
+//  -> 수정하지않은 Item 까지 모두 출력됨(랜더링됨)
+// => App05 : Context 적용 2단계 (Context 용도별 분리적용)
+//  -> TodoItem의 React.memo 적용됨 확인
+//  -> 수정한 Item 만 출력됨(랜더링됨)
+
 //=================================================
 
 // ** TodoList (일정관리 앱) 리팩토링 4.
@@ -37,9 +45,8 @@
 
 import './App.css';
 import Header from './components/Header';
-import TodoEditor from './components/TodoEditor';
-import TodoList from './components/TodoList';
-import TestComp from './components/TestComp';
+import TodoEditor from './components04/TodoEditor';
+import TodoList from './components04/TodoList';
 import React, { useReducer, useState, useRef } from "react";
 import { useCallback } from 'react';
 

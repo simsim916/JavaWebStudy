@@ -4,7 +4,7 @@
 
 import "./TodoItem.css";
 import React, {useContext} from "react";
-import { TodoDispatchContext } from "../App";
+import { TodoDispatchContext } from "../App05";
  
 const TodoItem = ({id, isDone, content, createDate}) => {
 
@@ -20,7 +20,7 @@ const TodoItem = ({id, isDone, content, createDate}) => {
   //const onClickButton = () => { onDelete(id); }
 
   // => 최적화 (React.memo 적용) 전/후 출력 비교
-  console.log(`** TodoItem Update id=${id} **`);
+  console.log(`** TodoItem Update(랜더링) id=${id} **`);
   return(
     <div className="TodoItem">
       <div>
@@ -42,3 +42,4 @@ const TodoItem = ({id, isDone, content, createDate}) => {
 }; //TodoItem
  
 export default  React.memo(TodoItem);
+//export default  TodoItem;

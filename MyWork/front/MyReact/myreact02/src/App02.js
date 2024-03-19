@@ -109,7 +109,6 @@ function App() {
       <TodoEditor onCreate={onCreate} />
       <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
     </div>
-   
     
   );
 }

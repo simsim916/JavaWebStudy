@@ -7,7 +7,7 @@
 import "./TodoList.css";
 import TodoItem  from "./TodoItem";
 import { useState, useMemo, useContext } from "react";
-import { TodoContext } from "../App";
+import { TodoContext } from "../App04";
 
 const TodoList = () => {
   // ** Context 적용
@@ -55,8 +55,9 @@ const TodoList = () => {
       <div className="list_wrapper" >
         {/* ** 검색기능 : 배열(todo) 에  filter() 적용   
             ** TodoItem Context 적용  
-            => Context에서 직접 전달받는 Props는 필요 없으므로 삭제한다.
-               그러나 해당하는 Item 은 Props 로 전달해야하므로 그냥둔다.  */}
+            => Context에서 직접 전달받는 Props는 재전달 할 필요가 없으므로 삭제한다.
+              ( onUpdate, onDelete 속성 ) 
+               그러나 해당하는 Item 값은 Props 로 전달해야하므로 그냥둔다.  */}
         { getSearchResult().map( (it) => ( <TodoItem key={it.id} {...it} /> ) )}
       </div>
     </div>

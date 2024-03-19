@@ -16,10 +16,20 @@
 // ** useMemo()
 // => 함수의 불필요한 재실행 방지
 // => 메모이제이션(Memoization) 기법을 이용해 연산의 결과값을
-//    기억헤 두었다가 필요할때 사용함으로 불필요한 함수호출을 줄여주는 훅.  
+//    기억해 두었다가 필요할때 사용함으로 불필요한 함수호출을 줄여주는 훅.  
 // => const value = useMemo(callback, [의존성배열]);
-//    의존성배열 의 값이 바뀌면 callback 함수를 실행하고 결과값 return
+//    의존성배열의 값이 바뀌면 callback 함수를 실행하고 결과값 return
 // => TodoList 컴포넌트에 analyzeTodo 함수 추가 하고 Test
+
+// => useEffect 와 비교하기  ( 아래 비교예제 참고 )
+//  -> useEffect(callback_함수, [deps]_의존성 배열)
+//    두번째 인자인 의존성 배열요소의 값이 변경되면 첫번째 인자인 콜백함수를 실행함 
+//    ( 결과를 return 하지않음 )
+
+//  -> useMemo() 와 useEffect() 차이점  
+//    - useMemo는 랜더링 직전 실행, useEffect는 랜더링 직후 실행
+//    - useMemo는 callback함수 결과값 return, useEffect는 결과 return 하지않음
+//    - useMemo는 함수 최적화용, useEffect는 side effect (예_서버에서 Data 가져오기 등, myreact01_App03 참고) 수행
 
 // ** useCallback()
 // => 함수의 불필요한 재생성 방지
@@ -45,7 +55,7 @@
 //    const comp = React.memo(() => {....})
 
 // => 고차 컴포넌트 (HOC: High Order Component)
-//    컴포넌트 기능을 재사용 하기위한 리액트 고급기슬 
+//    컴포넌트 기능을 재사용 하기위한 리액트 고급기술 
 //    인자로 전달된 컴포넌트에 새로운 기능을 추가해 
 //    더욱 강화된 컴포넌트를 return 하는 컴포넌트(함수) 를 말하며
 //    이때 return 되는 강화된 컴포넌트를 Enhanced(강화된, 향상된) Component 라함.   
@@ -60,8 +70,7 @@ import './App.css';
 import Header from './components01/Header';
 import TodoEditor from './components01/TodoEditor';
 import TodoList from './components01/TodoList';
-import TestComp from './components/TestComp';
-import { useReducer, useState, useRef } from "react";
+import { useReducer, useState, useRef, useEffect, useMemo } from "react";
 import { useCallback } from 'react';
 
 // 2. Mock Data
@@ -158,7 +167,11 @@ function App() {
     dispatch({ type:"Delete", targetId }); //dispatch 
   }, [] );
 
-  console.log("** App Update !! **");
+  // ** useMemo 와 useEffect 와 호출시점 비교예제 
+  useMemo(() => { console.log("** useMemo Call !!!"); }, []); //1st
+  console.log("** App Update !! **");  //2nd
+  useEffect(() => { console.log("** useEffect Call !!!"); }, []); //3rd (랜더링후)
+
   return (
     <div className="App">
       {/* <TestComp /> */}

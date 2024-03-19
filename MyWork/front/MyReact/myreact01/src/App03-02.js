@@ -3,6 +3,26 @@ import Viewer from './components03/Viewer';
 import Controller from './components03/Controller';
 import { useEffect, useRef, useState } from 'react';
 
+// => 목적: side effect 를 수행 하기위한 훅
+//  -> side effect
+//     사이드이펙트, 사전적 직역은 (예상치못한) 부작용 을 의미
+//     대상의 옆에서 효과가 난다는 의미에서 나옴
+//     개발시에는 의도치 않은 코드 실행으로 버그발생시 사이드이펙트가 발생했다고 함 
+//     그러나 리액트에서는 effect(효과, 영향) 의 의미로 쓰이며
+//     다른 컴포넌트에 영향을 줄 수 있으며, 랜더링 도중에는 작업이 완료될수 없기 때문에
+//     랜더링 후에 실행되어야 하는 작업들을 의미함.
+//     예를 들면 서버에서 데이터를 받아오거나, 수동으로 DOM 을 변경하는 등의 작업을 말함.      
+
+// => useEffect(callback_함수, [deps]_의존성 배열)
+//    두번째 인자인 의존성 배열요소의 값이 변경되면 첫번째 인자인 콜백함수를 실행함   
+//  -> 두번째 인자값 초기화 할때도 감지함
+//  -> 두번째인자가 없는 useEffect : 조건값이 제시되지않았으므로 랜더링 할때마다 호출됨
+//  -> 두번째인자가 빈배열 인경우 : 마운트 시점에만 콜백함수 실행, 그러므로 Mount 제어에 이용
+
+// => 첫번째인자인 callback_함수의 주의사항
+//  -> 전역변수 사용 불가능, 함수 내부에서 정의한 지역변수만 사용가능 
+//  -> useState 와 useRef 로 정의한 변수는 접근 가능함 (아래 예제 참고)         
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // ** 컴포넌트 LifeCycle
 // => 컴포넌트는 개념적으로 props를 input으로 하고
@@ -120,12 +140,13 @@ function App() {
     //    기존 setInterval 은 삭제하도록 할 수 있다.  
 
     // 6.1) 클린업 함수로 setInterval 삭제 추가
-    useEffect(() => { 
-      const intervalId = setInterval(()=>{ console.log('** 깜빡 **');}, 1000);
-      return () => {
-        console.log('** 클린업 함수 **');
-        clearInterval(intervalId);
-      }}); //useEffect
+    useEffect(() => {
+        const intervalId = setInterval(() => { console.log('** 깜빡 **'); }, 1000);
+        return () => {
+            console.log('** 클린업 함수 **');
+            clearInterval(intervalId);
+        }
+    }); //useEffect
     // 6.2) 클린업을 이용한 언마운트 제어하기
     // => count 값이 짝수면
     //    "짝수 입니다" 를 출력하는 컴포넌트 (Even.jsx) 를 만든다.

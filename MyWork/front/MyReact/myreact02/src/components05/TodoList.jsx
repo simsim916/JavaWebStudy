@@ -6,7 +6,7 @@
 import "./TodoList.css";
 import TodoItem  from "./TodoItem";
 import { useState, useMemo, useContext } from "react";
-import { TodoStateContext } from "../App";
+import { TodoStateContext } from "../App05";
 
 const TodoList = () => {
   // ** 용도에 맞는 Context 적용
