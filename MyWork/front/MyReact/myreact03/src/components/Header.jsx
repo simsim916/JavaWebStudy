@@ -29,7 +29,7 @@ function Header({ userName, isLoggedIn, onLogout }) {
                     ( <>
                         <li>{userName}님</li>
                         <li><Link to="/" onClick={onLogout}>로그아웃</Link></li>
-                        <li><Link to="/mypage/:data">마이페이지</Link></li>
+                        <li><Link to="/myinfo/">마이페이지</Link></li>
                         </> ) : 
                     ( <>
                         <li><Link to="/login">로그인</Link></li>

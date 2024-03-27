@@ -127,7 +127,7 @@ function App() {
 
   // 3. 로그아웃
   const onLogout = () => {
-    let url = "/member/logout";
+    let url = "/auth/logout";
     alert(`** 로그아웃 token 확인 => ${loginInfo.token}`);
     apiCall(url, 'GET', null, loginInfo.token)
     .then((response) => {
@@ -149,7 +149,7 @@ function App() {
   return (
     <div className="App">
       <Header userName={loginInfo.username} isLoggedIn={isLoggedIn} onLogout={onLogout} />
-      <Main setIsLoggedIn={setIsLoggedIn}
+      <Main token={loginInfo.token}
             onLoginSubmit={onLoginSubmit}
       />
       <Footer />

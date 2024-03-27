@@ -1,6 +1,20 @@
-/* ========================== login_container ======================= */
+/* ========================== 공통 ======================= */
 .body_container {
-    height: 400px;
+    height: 500px;
+    align-content: center;
+    align-items: center;
+}
+
+.contents{
+    align-items: center;
+    align-content: center;
+}
+
+.pageTitle {
+    margin: 20px 0 30px 0;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: gray;
 }
 
 /* ========================== 헤더아래 로케이션 ======================= */
@@ -25,12 +39,6 @@
     .searchSorter .sortFilter,
     .btnSection {
         text-align: center;
-    }
-
-    .pageTit {
-        margin: 90px 0 30px 0;
-        font-size: 2.2em;
-        font-weight: bold;
     }
 
     /* ################################### 왼쪽 네비게이션바 ################################### */

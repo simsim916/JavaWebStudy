@@ -8,17 +8,22 @@ import axios from "axios";
 
 export async function apiCall(url, method, requestData, token) {
 
-  // 1.1) headers
-  let headers = new Headers({ 
-              "Content-Type": "application/json",
-  }); // 추가할 heades 속성이 있으면 추가할수 있도록 "," 추가함 
-
-  // 1.2) token
-  if (token !== null) { 
-    headers.append("Authorization", "Bearer " + token);
+  // 1.1) headers & token
+  // => indexOf('join')
+  //  - JavasScript 의 문자열 확인함수
+  //  - 존재하면 찾는문자열이 첫번째 나타나는 위치(index) 를 return,
+  //    없으면 -1 dmf return
+  let headers = ''; 
+  if (url.indexOf('join') >= 0  && token == null) {
+      headers = { 'Content-Type': 'multipart/form-data' };  
+  }else if (token !== null) {
+      headers = { 'Content-Type': 'application/json',
+                  'Authorization': 'Bearer '+token  };  
+  }else {
+      headers = { 'Content-Type': 'application/json' };  
   }
 
-  // 1.3) axios 전송 options
+  // 1.2) axios 전송 options
   let options = {
       url: API_BASE_URL + url,
       method: method, 
@@ -26,7 +31,7 @@ export async function apiCall(url, method, requestData, token) {
   };
   // => 전송할 Data 가 있으면 추가할수 있도록 "," 추가함    
   
-  // 1.4) 전송 Data(requestData) 있는 경우 data 속성 추가
+  // 1.3) 전송 Data(requestData) 있는 경우 data 속성 추가
   if (requestData) {
     options.data = requestData;
   }
