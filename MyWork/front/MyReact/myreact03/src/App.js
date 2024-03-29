@@ -1,4 +1,4 @@
-  // "proxy": "http://localhost:8088",
+// "proxy": "http://localhost:8088",
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // ** Final Project 실습
@@ -84,44 +84,45 @@ function App() {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);  // 로그인 상태 저장 변수
   const [loginInfo, setLoginInfo] = useState(""); // 회원 로그인 정보
-  
+
   // 1. 로그인 확인
   // => 브라우져의 sessionStorage에서 로그인정보 확인
-  if ( !isLoggedIn ) {
-    const loginCheck =JSON.parse(sessionStorage.getItem("loginInfo"));
+  if (!isLoggedIn) {
+    const loginCheck = JSON.parse(sessionStorage.getItem("loginInfo"));
     //if (loginCheck.token !== null) {  -> token 적용이후 확인
     if (loginCheck !== null) {  // token 적용이전 확인
       alert(`** sessionStorage 로그인 확인 username=${loginCheck.username}`);
       setIsLoggedIn(true);
       setLoginInfo(loginCheck);
-    } 
-  } 
+    }
+  }
 
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   // 2. 로그인 함수
   const onLoginSubmit = (userId, userPassword) => {
 
     let url = "/user/login";
-    const data = { id:userId, password:userPassword };
+    const data = { id: userId, password: userPassword };
 
     apiCall(url, 'POST', data, null)
-    .then((response) => {
+      .then((response) => {
         // => 로그인 성공
         //  -> 브라우져의 sessionStorage에 로그인정보 보관 (JSON 포맷으로), 
         //     로그인상태값 과 loginInfo상태값  set  
         //  -> apiCall 함수 에서는 response.data 값을 return 함.
-        sessionStorage.setItem("loginInfo", JSON.stringify(response));
+        sessionStorage.setItem("loginInfo", response.data);
         alert('로그인 성공');
         setIsLoggedIn(true);
         setLoginInfo(response);
         navigate("/");
-    }).catch((err) => {
+      }).catch((err) => {
         setIsLoggedIn(false);
         setLoginInfo('');
-        if (err===502) { alert("id 또는 password 가 다릅니다, 다시하세요 ~~");
-        }else { alert(`** onLoginSubmit 시스템 오류, err=${err}`); }
+        if (err === 502) {
+          alert("id 또는 password 가 다릅니다, 다시하세요 ~~");
+        } else { alert(`** onLoginSubmit 시스템 오류, err=${err}`); }
         navigate("/login");
-    }); //apiCall
+      }); //apiCall
 
   }; //onLoginSubmit
 
@@ -130,7 +131,7 @@ function App() {
     let url = "/auth/logout";
     alert(`** 로그아웃 token 확인 => ${loginInfo.token}`);
     apiCall(url, 'GET', null, loginInfo.token)
-    .then((response) => {
+      .then((response) => {
         // => 로그인아웃 성공
         //  -> 브라우져의 sessionStorage에 로그인정보 삭제, 
         //     로그인상태값 과 userName 초기화  
@@ -138,11 +139,12 @@ function App() {
         alert('로그아웃 성공');
         setIsLoggedIn(false);
         setLoginInfo('');
-    }).catch((err) => {
+      }).catch((err) => {
         //setIsLoggedIn(false);
-        if (err===502) { alert("로그 아웃 실패, 다시하세요 ~~");
-        }else { alert(`** onLogout 시스템 오류, err=${err}`); }
-    }); //apiCall
+        if (err === 502) {
+          alert("로그 아웃 실패, 다시하세요 ~~");
+        } else { alert(`** onLogout 시스템 오류, err=${err}`); }
+      }); //apiCall
     navigate("/");
   }; //onLogout
 
@@ -150,7 +152,7 @@ function App() {
     <div className="App">
       <Header userName={loginInfo.username} isLoggedIn={isLoggedIn} onLogout={onLogout} />
       <Main token={loginInfo.token}
-            onLoginSubmit={onLoginSubmit}
+        onLoginSubmit={onLoginSubmit}
       />
       <Footer />
     </div>
